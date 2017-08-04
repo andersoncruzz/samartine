@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SARMATINe</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+     <!-- Social Buttons CSS -->
+    <link href="../vendor/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SARMATINe </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">             
+              
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                       
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                       
+                         <li>
+                            <a href="blank.html"><i class="fa fa-dashboard fa-fw"></i> Menu</a>
+                        </li> 
+                         <li>
+                            <a href="Pagina2.html"><i class="fa fa-edit fa-fw"></i> Pagina 2</a>
+                        </li>
+                        
+                       
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><b>Passo 2 :</b> Identificação dos VO's Praticados na Organização de Software</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+                 <div class="col-lg-12">
+                    <h4><b>Como proceder:</b></h4> <h5> Neste passo você vai indicar o seu grau de concordância para cada VO praticado na organização de software. As opções de grau de concordância são: </h5>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            </br>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5><b> Informações Importantes!</b></h5>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                <h5> <button type="button" class="btn btn-danger btn-circle">1</button> <b>Discordo Totalmente:</b> Indica que o valor organizacional não está presente na organização de software e nunca é praticado. Por este motivo, nunca foi percebido pelo funcionário.</h5>                                                                                                                            
+                                </div>
+
+                                 <div class="col-lg-12">
+                                  </br>
+                                 <h5> <button type="button" class="btn btn-warning btn-circle ">2</button><b> Discordo:</b> Indica que o valor organizacional na maioria das vezes não está presente na organização e raramente é praticado. Por este motivo, dificilmente é percibido por um funcionário.</h5>
+                                                                                                
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->
+                                 <div class="col-lg-12">
+                                  </br>
+                                 <h5> <button type="button" class="btn btn-primary btn-circle ">3</button> <b>Indiferente:</b> teste</h5>
+                                                                                             
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->
+                                <div class="col-lg-12">
+                                  </br>
+                                 <h5> <button type="button" class="btn btn-info btn-circle ">4</button> <b>Concordo:</b> Indica que o valor organizacional está presente na organização, mas que em alguns momentos não é praticado, isto é, não há uma prática constante na organização. Por este motivo, não é facilmente percebido pelo funcionário.</h5>
+                                                                                               
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->
+                                <div class="col-lg-12">
+                                  </br>
+                                 <h5> <button type="button" class="btn btn-success btn-circle ">5</button><b> Concordo Totalmente:</b> Indica que o valor organizacional está fortemente presente na organização, sendo praticado em todos os momentos. Por este motivo, é percebido por qualquer funcionário.</h5>                                                                                           
+                                </div>
+                                <!-- /.col-lg-12 (nested) -->                                                 
+    
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+      
+
+              
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5><b> Metas de Alinhamento Estratégico (MAE)</b></h5>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                         <h4><b>P1-</b> Alinhar os negócios à TI por meio da definição do planejamento estratégico de TI.</h4>
+                         <h5> <b>Descrição:</b> O propósito da diretriz P1 é garantir a participação dos gestores de negócios na definição do planejamento estratégico de TI, de forma que este planejamento estratégico seja coerente com o planejamento estratégico organizacional. Obs.: O planejamento estratégico organizacional é composto pela missão, visão, objetivos e estratégias organizacionais, enquanto que o planejamento estratégico da TI é composto pelos objetivos e estratégias da TI.</h5><br>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Questões</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><h5>Os gestores de negócios possuem capacidade/habilidades para participar da definição do planejamento estratégico de TI. </h5></td>
+                                            <td><input type="radio" name="MAE-P1-01" id="MAE-P1-01-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-01" id="MAE-P1-01-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-01" id="MAE-P1-01-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-01" id="MAE-P1-01-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-01" id="MAE-P1-01-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><h5>Os gestores de negócios são compromissados/motivados com a definição do planejamento estratégico de TI.</h5></td>
+                                            <td><input type="radio" name="MAE-P1-02" id="MAE-P1-02-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-02" id="MAE-P1-02-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-02" id="MAE-P1-02-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-02" id="MAE-P1-02-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-02" id="MAE-P1-02-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>3</td>
+                                            <td><h5>Os gestores de negócios conhecem as questões essenciais relacionadas com a definição do planejamento estratégico de TI, tais como, os objetivos, as estratégias, as forças, as fraquezas, as ameaças e as oportunidades da TI. </h5></td>
+                                            <td><input type="radio" name="MAE-P1-03" id="MAE-P1-03-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-03" id="MAE-P1-03-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-03" id="MAE-P1-03-4" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-03" id="MAE-P1-03-5" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-03" id="MAE-P1-03-6" value="5"></td>
+                                        </tr>
+                                         <tr>
+                                           <td>4</td>
+                                            <td><h5>Os gestores de negócios trabalham de forma cooperativa com os gestores de TI participando ativamente da definição do planejamento estratégico de TI.</h5> </td>
+                                            <td><input type="radio" name="MAE-P1-04" id="MAE-P1-04-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-04" id="MAE-P1-04-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-04" id="MAE-P1-04-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-04" id="MAE-P1-04-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-04" id="MAE-P1-04-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>5</td>
+                                            <td><h5>O planejamento estratégico da TI prescreve coerentemente o suporte aos objetivos de negócios (contidos no planejamento estratégico organizacional).</h5>  </td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-P1-05-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-P1-05-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-P1-05-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-P1-05-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-P1-05-5" value="5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-6 -->              
+            </div>
+            <!-- /.row -->
+       
+   
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h5><b> Metas de Alinhamento Estratégico (MAE)</b></h5>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                         <h4><b>P2-</b> Alinhar a TI aos negócios por meio da definição do planejamento estratégico organizacional.</h4>
+                         <h5> <b>Descrição:</b>O propósito da diretriz P2 é garantir a participação dos gestores de TI na definição do planejamento estratégico organizacional, de forma que este planejamento seja coerente com o planejamento estratégico de TI. Obs.: O planejamento estratégico organizacional é composto pela missão, visão, objetivos e estratégias organizacionais, enquanto que o planejamento estratégico da TI é composto pelos objetivos e estratégias da TI. </h5><br>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Questões</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><h5>Os gestores de TI possuem capacidade/habilidades para participar da definição do planejamento estratégico organizacional. </h5></td>
+                                            <td><input type="radio" name="MAE-P2-01" id="MAE-P2-01-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P2-01" id="MAE-P2-01-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P2-01" id="MAE-P2-01-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P2-01" id="MAE-P2-01-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P2-01" id="MAE-P2-01-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><h5>Os gestores de TI são compromissados/motivados com a definição do planejamento estratégico organizacional. </h5></td>
+                                            <td><input type="radio" name="MAE-P2-02" id="MAE-P2-02-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P2-02" id="MAE-P2-02-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P2-02" id="MAE-P2-02-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P2-02" id="MAE-P2-02-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P2-02" id="MAE-P2-02-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>3</td>
+                                            <td><h5>Os gestores de TI conhecem as questões essenciais relacionadas com a definição do planejamento estratégico organizacional, tais como, os objetivos, as estratégias, as forças, as fraquezas, as ameaças e as oportunidades da organização. </h5></td>
+                                            <td><input type="radio" name="MAE-P2-03" id="MAE-P2-03-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P2-03" id="MAE-P2-03-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P2-03" id="MAE-P2-03-4" value="3"></td>
+                                            <td><input type="radio" name="MAE-P2-03" id="MAE-P2-03-5" value="4"></td>
+                                            <td><input type="radio" name="MAE-P2-03" id="MAE-P2-03-6" value="5"></td>
+                                        </tr>
+                                         <tr>
+                                           <td>4</td>
+                                            <td><h5>Os gestores de TI trabalham de forma cooperativa com os gestores de negócios, participando ativamente da definição do planejamento estratégico organizacional. </h5> </td>
+                                            <td><input type="radio" name="MAE-P2-04" id="MAE-P2-04-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P2-04" id="MAE-P2-04-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P2-04" id="MAE-P2-04-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P2-04" id="MAE-P2-04-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P2-04" id="MAE-P2-04-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>5</td>
+                                            <td><h5>O planejamento estratégico organizacional prescreve o uso estratégico da TI, estando coerente com seus objetivos.</h5>  </td>
+                                            <td><input type="radio" name="MAE-P2-05" id="MAE-P2-05-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P2-05" id="MAE-P2-05-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P2-05" id="MAE-P2-05-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P2-05" id="MAE-P2-05-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P2-05" id="MAE-P2-05-5" value="5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->              
+            </div>
+            <!-- /.row -->
+       
+
+              
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                               <h5><b> Metas de Alinhamento Estratégico (MAE)</b></h5>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                         <h4><b>O1-</b> Alinhar os negócios à TI por meio da definição dos processos ou atividades de TI.</h4>
+                         <h5> <b>Descrição:</b> O propósito da diretriz O1 é garantir a participação dos gestores de negócios na definição dos processos ou atividades de TI, cuja responsabilidade principal geralmente é do gestor de TI.</h5><br>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Questões</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><h5>Os gestores de negócios possuem capacidade/habilidades para participar da definição dos processos ou atividades de TI. </h5></td>
+                                            <td><input type="radio" name="MAE-O1-01" id="MAE-O1-01-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-O1-01" id="MAE-O1-01-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-O1-01" id="MAE-O1-01-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-O1-01" id="MAE-O1-01-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-O1-01" id="MAE-O1-01-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><h5>Os gestores de negócios são compromissados/motivados com a definição dos processos ou atividades de TI. </h5></td>
+                                            <td><input type="radio" name="MAE-O1-02" id="MAE-O1-02-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-O1-02" id="MAE-O1-02-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-O1-02" id="MAE-O1-02-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-O1-02" id="MAE-O1-02-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-O1-02" id="MAE-O1-02-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>3</td>
+                                            <td><h5>Os gestores de negócios conhecem as questões essenciais relacionadas com a definição dos processos ou atividades de TI, tais como, as necessidades, os objetivos e as estratégias da TI </h5></td>
+                                            <td><input type="radio" name="MAE-O1-03" id="MAE-O1-03-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-O1-03" id="MAE-O1-03-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-O1-03" id="MAE-O1-03-4" value="3"></td>
+                                            <td><input type="radio" name="MAE-O1-03" id="MAE-O1-03-5" value="4"></td>
+                                            <td><input type="radio" name="MAE-O1-03" id="MAE-O1-03-6" value="5"></td>
+                                        </tr>
+                                         <tr>
+                                           <td>4</td>
+                                            <td><h5>Os gestores de negócios trabalham de forma cooperativa com os gestores de TI, participando ativamente da definição dos processos ou atividades de TI </h5> </td>
+                                            <td><input type="radio" name="MAE-O1-04" id="MAE-O1-04-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-O1-04" id="MAE-O1-04-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-O1-04" id="MAE-O1-04-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-O1-04" id="MAE-O1-04-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-O1-04" id="MAE-O1-04-5" value="5"></td>
+                                        </tr>
+                                        <tr>
+                                           <td>5</td>
+                                            <td><h5>Os processos ou atividades de TI são coerentes com o planejamento estratégico organizacional, suportando os objetivos e as estratégias dos negócios. </h5>  </td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-O1-05-1" value="1"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-O1-05-2" value="2"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-O1-05-3" value="3"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-O1-05-4" value="4"></td>
+                                            <td><input type="radio" name="MAE-P1-05" id="MAE-O1-05-5" value="5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->              
+            </div>
+            <!-- /.row -->
+            <a href="" class="btn btn-lg btn-success btn-block">Salvar Formulário</a>
+        </br>
+        </br>
+        </div>
+        <!-- /#page-wrapper -->
+  
+
+
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
