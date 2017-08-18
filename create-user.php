@@ -1,19 +1,42 @@
 <?php
 include("database.php");
 
+$nome = $_POST["nome"];
 $email = $_POST["email"];
-$username = $_POST["username"];
-$senha = $_POST["senha"];
+$password = $_POST["password"];
+$genero = $_POST["genero"];
+$nivel_academico = $_POST["nivel_academico"];
+$organizacao = $_POST["organizacao"];
+$tempo_organizacao = $_POST["tempo_organizacao"];
+$atuacao = $_POST["atuacao"];
+$tempo_experiencia = $_POST["tempo_experiencia"];
+
+
 
 $pdo = new PDO($database_conexao, $database_username, $database_senha);
 
-$query = "INSERT INTO user (email, username, senha, randori_semaforo, flag_piloto, flag_copiloto) VALUES (:email,:username,:senha, 0, 0, 0);";
+$query = "INSERT INTO user (nome, email, password, genero, nivel_academico, organizacao, tempo_organizacao, atuacao, tempo_experiencia) VALUES (:nome, :email, :password, :genero, :nivel_academico, :organizacao, :tempo_organizacao, :atuacao, :tempo_experiencia);";
 			
 $statement = $pdo->prepare($query);
+$statement->bindValue(":nome",$nome);
 $statement->bindValue(":email",$email);
-$statement->bindValue(":username",$username);
-$statement->bindValue(":senha",$senha);
-$statement->execute();
+$statement->bindValue(":password",$password);
+$statement->bindValue(":genero",$genero);
+$statement->bindValue(":nivel_academico",$nivel_academico);
+$statement->bindValue(":organizacao",$organizacao);
+$statement->bindValue(":tempo_organizacao",$tempo_organizacao);
+$statement->bindValue(":atuacao",$atuacao);
+$statement->bindValue(":tempo_experiencia",$tempo_experiencia);
 
-header("location:login.php");
+if ($statement->execute()) {
+	session_start();
+	$_SESSION["email"] = $email;
+	$_SESSION["nome"] = $nome;
+	//$_SESSION['expire'] = $_SESSION['start'] + (24 * 60 * 60);
+	header("location:formulario.php");
+	//echo $_SESSION["email"] . " user " . $_SESSION["username"] . " ". var_dump($_SESSION);
+} else {
+	header("location:login.php");
+}
+
 ?>

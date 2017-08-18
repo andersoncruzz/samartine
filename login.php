@@ -32,7 +32,7 @@
 
 </head>
 
-<body>
+<body> 
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -41,18 +41,18 @@
                         <h3 class="panel-title"><b>Faça seu login</b></h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" method="POST" action="login-processa.php">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" action="processa.php" class="btn btn-lg btn-success btn-block">Login</button>
-                                <a href="Pagina1.html" class="btn btn-lg btn-info btn-block">Criar uma Conta</a>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                                <a href="usuario.php" class="btn btn-lg btn-info btn-block">Criar uma Conta</a>
                             </fieldset>
                         </form>
                     </div>
