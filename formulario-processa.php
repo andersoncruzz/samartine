@@ -4,7 +4,7 @@ session_start();
 include("database.php");
 
 if ( $_SESSION["email"] != null
-    && $_SESSION["nome"]!= null) {
+    && $_SESSION["username"]!= null) {
 
 $MAEP101 = $_POST["MAE-P1-01"];
 $MAEP102 = $_POST["MAE-P1-02"];
@@ -70,7 +70,6 @@ $MAEC102 = $_POST["MAE-C1-02"];
 $MAEC103 = $_POST["MAE-C1-03"];
 $MAEC104 = $_POST["MAE-C1-04"];
 $MAEC105 = $_POST["MAE-C1-05"];
-
 
 $MAEC201 = $_POST["MAE-C2-01"];
 $MAEC202 = $_POST["MAE-C2-02"];
