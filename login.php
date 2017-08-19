@@ -53,6 +53,7 @@
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                                 <a href="usuario.php" class="btn btn-lg btn-info btn-block">Criar uma Conta</a>
+                                <a href="empresa.php" class="btn btn-lg btn-warning btn-block">Cadastrar uma Empresa</a>
                             </fieldset>
                         </form>
                     </div>
