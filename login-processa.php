@@ -22,6 +22,7 @@ if ($user) {
 	session_start();
 	$_SESSION["email"] = $user["email"];
 	$_SESSION["username"] = $user["nome"];
+	$_SESSION["empresa"] = $user["code_fk"];
 	//$_SESSION['expire'] = $_SESSION['start'] + (24 * 60 * 60);
 	header("location:home.php");
 	//echo $_SESSION["email"] . " user " . $_SESSION["username"] . " ". var_dump($_SESSION);
