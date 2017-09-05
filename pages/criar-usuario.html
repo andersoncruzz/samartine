@@ -111,7 +111,7 @@
                                      
                                         <div class="form-group" >
                                             <label >* Nome</label>
-                                            <input class="form-control" placeholder="Nome" name="nome" type="" value="">
+                                            <input class="form-control" placeholder="Nome" name="nome" type="" value="" required>
 
                                         </div>                                        
                                      
@@ -132,7 +132,7 @@
                                      
                                         <div class="form-group">
                                             <label>* Email</label>
-                                            <input class="form-control" placeholder="Email" name="email" type="email" value="">                                            
+                                            <input class="form-control" placeholder="Email" name="email" type="email" value="" required>                                            
                                         </div>                                        
                                      
                                 </div>
@@ -142,23 +142,52 @@
                                      
                                         <div class="form-group">
                                             <label>*Senha</label>
-                                            <input class="form-control" placeholder="Senha" name="password" type="password" value="">                                            
+                                            <input class="form-control" placeholder="Senha" name="password" type="password" value="" required>                                            
                                         </div>                                        
                                      
                                 </div>
                                 <!-- /.col-lg-4 (nested) -->    
+                                    <div class="col-lg-12">
+                                     
+                                        <div class="form-group">
+                                            <label>*Em região do país você reside?</label>
+                                             <div class="radio">
+                                                <label>
+                                                     <input type="radio" name="regiao" id="norte" value="1" required>Norte
+                                                </label> </br>
+                                                <label>
+                                                     <input type="radio" name="regiao" id="nordeste" value="2">Nodeste
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="regiao" id="centroeste" value="3">Centro-Oeste
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="regiao" id="sudeste" value="4">Sudeste
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="regiao" id="sul" value="5">Sul
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="regiao" id="exterior" value="6">Não moro no Brasil
+                                                </label> </br>
+                                            </div>                                                                                
+                                        </div>                                        
+                                     
+                                </div>
+
+
 
                                  <div class="col-lg-12">
                                      
                                         <div class="form-group">
-                                            <label>*Gênero:</label>
+                                            <label>*Qual o seu sexo?</label>
                                              <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="genero" id="Masculino" value="1">Masculino
-                                                </label>
+                                                    <input type="radio" name="genero" id="Masculino" value="1" required>Masculino
+                                                </label> </br>
                                                 <label>
                                                     <input type="radio" name="genero" id="Feminino" value="2" >Feminino
-                                                </label>
+                                                </label> </br>
                                             </div>    
                                                                                     
                                         </div>                                        
@@ -169,87 +198,43 @@
                                     <div class="col-lg-12">
                                      
                                         <div class="form-group">
-                                            <label>*Qual seu maior nível acadêmico ?</label>
+                                            <label>*Qual o seu maior nível de formação (concluído) ?</label>
                                              <div class="radio">
                                                 <label>
-                                                     <input type="radio" name="nivel_academico" id="tecnico" value="1">Curso Técnico
-                                                </label>
+                                                     <input type="radio" name="nivel_academico" id="basico" value="1" required>Ensino Fundamental e/ou Médio
+                                                </label> </br>
                                                 <label>
-                                                     <input type="radio" name="nivel_academico" id="graduacao" value="2">Graduação
-                                                </label>
+                                                     <input type="radio" name="nivel_academico" id="tecnico" value="2">Ensino Profissional - Técnico
+                                                </label> </br>
+                                                <label>
+                                                     <input type="radio" name="nivel_academico" id="graduacao" value="3">Graduação
+                                                </label> </br>
                                                  <label>
-                                                     <input type="radio" name="nivel_academico" id="pos_graduacao" value="3">Pós-Graduação
-                                                </label>
+                                                     <input type="radio" name="nivel_academico" id="especializacao" value="4">Especialização
+                                                </label> </br>
                                                  <label>
-                                                     <input type="radio" name="nivel_academico" id="mestrado" value="4">Mestrado
-                                                </label>
+                                                     <input type="radio" name="nivel_academico" id="mestrado" value="5">Mestrado
+                                                </label> </br>
                                                  <label>
-                                                     <input type="radio" name="nivel_academico" id="doutorado" value="5">Doutorado ou Pos-Doutorado
-                                                </label>
-                                                 <label>
-                                                     <input type="radio" name="nivel_academico" id="outro" value="6">Outro
-                                                </label>
+                                                     <input type="radio" name="nivel_academico" id="doutorado" value="6">Doutorado e/ou Pós-Doutorado
+                                                </label> </br>
                                             </div>                                                                                
                                         </div>                                        
                                      
                                 </div>
-                                <!-- /.col-lg-12 (nested) -->       
-
-                                  <div class="col-lg-12">
-                                     
-                                        <div class="form-group">
-                                            <label>*Qual tipo de organização em que você atua ?</label>
-                                             <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="organizacao" id="publica" value="1">Pública
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="organizacao" id="privada" value="2">Privada
-                                                </label>                                                 
-                                            </div>                                                                                
-                                        </div>                                        
-                                     
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->       
-
-
-                                  <div class="col-lg-12">
-                                     
-                                        <div class="form-group">
-                                            <label>*Há quanto tempo você trabalha nessa organização ?</label>
-                                            <div class="radio">
-                                                <label>
-                                                   <input type="radio" name="tempo_organizacao" id="tempo_organizacao_5" value="1">Menos de 5 anos
-                                                </label>
-                                                <label>
-                                                   <input type="radio" name="tempo_organizacao" id="tempo_organizacao_5_10" value="2">Entre 5 e 10 anos
-                                                </label>    
-                                                 <label>
-                                                    <input type="radio" name="tempo_organizacao" id="tempo_organizacao_10_15" value="3">Entre 10 e 15 anos
-                                                </label> 
-                                                 <label>
-                                                    <input type="radio" name="tempo_organizacao" id="tempo_organizacao_15_20" value="4">Entre 15 e 20 anos
-                                                </label> 
-                                                 <label>
-                                                    <input type="radio" name="tempo_organizacao" id="tempo_organizacao_20" value="5">Mais de 20 anos
-                                                </label>                                              
-                                            </div>                                                                                
-                                        </div>                                        
-                                     
-                                </div>
-                                <!-- /.col-lg-12 (nested) -->   
-
                                  <div class="col-lg-12">
                                      
                                         <div class="form-group">
-                                            <label>*Qual sua área de atuação dentro da organização ?</label>
+                                            <label>*Qual a sua área de atuação?</label>
                                              <div class="radio">
                                                 <label>
-                                                     <input type="radio" name="atuacao" id="ti" value="1">Gestão de TI
-                                                </label>
+                                                     <input type="radio" name="atuacao" id="ti" value="1" required>TI - (Gestão/Planejamento/Processos/Serviços de TI)
+                                                </label> </br>
                                                 <label>
-                                                     <input type="radio" name="atuacao" id="negocios" value="2">Gestão de Negócios
-                                                </label>                                                                                              
+                                                     <input type="radio" name="atuacao" id="negocios" value="2">Negócios - (Gestão, Diretoria, Gerência, Coordenação, Planejamento, Recursos Organizacionais)
+                                                </label> </br>                                                                      <label>
+                                                     <input type="radio" name="atuacao" id="outros" value="3"> Outros (Sem relação com TI ou com negócios)
+                                                </label> </br>                                                                                             
                                             </div>                                                                                
                                         </div>                                        
                                      
@@ -258,30 +243,132 @@
                                  <div class="col-lg-12">
                                      
                                         <div class="form-group">
-                                            <label>*Qual tempo de experiência na área de atuação?</label>
+                                            <label>*Qual o tempo de experiência na área de atuação?</label>
                                              <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_5" value="1">Menos de 5 anos
-                                                </label>
+                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_2" value="1" required>Menos de 2 anos
+                                                </label> </br>
                                                 <label>
-                                                   <input type="radio" name="tempo_experiencia" id="tempo_experiencia_5_10" value="2">Entre 5 e 10 anos
-                                                </label>    
+                                                   <input type="radio" name="tempo_experiencia" id="tempo_experiencia_2_10" value="2">Entre 2 e 10 anos
+                                                </label> </br>    
                                                  <label>
-                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_10_15" value="3">Entre 10 e 15 anos
-                                                </label> 
+                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_10_20" value="3">Entre 10 e 20 anos
+                                                </label> </br> 
                                                  <label>
-                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_15_20" value="4">Entre 15 e 20 anos
-                                                </label> 
-                                                 <label>
-                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_20" value="5">Mais de 20 anos
-                                                </label>                                                                                                
+                                                    <input type="radio" name="tempo_experiencia" id="tempo_experiencia_20" value="4">Mais de 20 anos
+                                                </label> </br>                                                                                                
                                             </div>                                                                                
-                                        </div>  
-                                          <div class="col-lg-12">
-                                           <button type="submit" name="submit" id="submit" class="btn btn-success">Próximo Passo</button> 
-                                       </div>
+                                        </div>                                       
+                                </div>
+
+
+
+                                <!-- /.col-lg-12 (nested) -->       
+
+                                  <div class="col-lg-12">
+                                     
+                                        <div class="form-group">
+                                            <label>*Qual o tipo de organização você está vinculado atualmente ?</label>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="organizacao" id="publica" value="1" required>Público
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="organizacao" id="privada" value="2">Privado
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="organizacao" id="misto" value="3">Capital Misto (Público/Privado) 
+                                                </label> </br>                                                                                                 
+                                            </div>                                                                                
+                                        </div>                                        
                                      
                                 </div>
+                                <!-- /.col-lg-12 (nested) -->       
+
+
+                                  <div class="col-lg-12">
+                                     
+                                        <div class="form-group">
+                                            <label>*Há quanto tempo está empregado ?</label>
+                                            <div class="radio">
+                                                <label>
+                                                   <input type="radio" name="tempo_organizacao" id="tempo_organizacao_2" value="1" required>Menos de 2 anos
+                                                </label> </br>
+                                                <label>
+                                                   <input type="radio" name="tempo_organizacao" id="tempo_organizacao_2_10" value="2">Entre 2 e 10 anos
+                                                </label> </br>    
+                                                 <label>
+                                                    <input type="radio" name="tempo_organizacao" id="tempo_organizacao_10_20" value="3">Entre 10 e 20 anos
+                                                </label> </br> 
+                                                 <label>
+                                                    <input type="radio" name="tempo_organizacao" id="tempo_organizacao_20" value="4">Mais de 20 anos
+                                                </label> </br>                                              
+                                            </div>                                                                                
+                                        </div>                                        
+                                     
+                                </div>
+                                  <div class="col-lg-12">
+                                     
+                                        <div class="form-group">
+                                            <label>*Em qual meio você desenvolve suas atividades ?</label>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="atividade" id="academico" value="1" required>Acadêmico
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="atividade" id="profissional" value="2">Profissional
+                                                </label> </br>                                                                                                
+                                            </div>                                                                                
+                                        </div>                                          
+                                </div>
+
+                                    <div class="col-lg-12">
+                                     
+                                        <div class="form-group">
+                                            <label>*Qual o cargo/função que você desempenha atualmente (principal atividade) ?</label>
+                                             <div class="radio">
+                                                <label>
+                                                     <input type="radio" name="cargo" id="ceo" value="1" required>Presidente (CEO - Chief Executive Officer) ou Diretor Executivo ou Similar
+                                                </label> </br>
+                                                <label>
+                                                     <input type="radio" name="cargo" id="cio" value="2">Diretor de Informática (CIO - Chief Information Officer) ou Similar
+                                                </label> </br>
+                                                <label>
+                                                     <input type="radio" name="cargo" id="gerenteti" value="3">Gerente de TI / Coordenador de TI
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="gerenteprojetos" value="4">Gerente de Projetos / Coordenador de Projetos
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="gerenteadm" value="5">Gerente Administrativo / Coordenador Adiministrativo
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="consultor" value="6">Consultor
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="pesquisador" value="7">Professor / Pesquisador
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="operador" value="8">Operador / Técnico em Informática
+                                                </label> </br> 
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="assistente" value="9">Assistente / Assessor Administrativo
+                                                </label> </br>
+                                                 <label>
+                                                     <input type="radio" name="cargo" id="outro" value="10">Outro
+                                                </label> </br>                                                                                                                                               
+                                            </div>                                                                                
+                                        </div>                                        
+                                     
+                                </div>
+
+
+                                        <div class="col-lg-12">
+                                           <button type="submit" name="submit" id="submit" class="btn btn-success">Próximo Passo</button> 
+                                       </div>
+
+                                <!-- /.col-lg-12 (nested) -->   
+
                                 <!-- /.col-lg-12 (nested) -->      
    
                             </div>

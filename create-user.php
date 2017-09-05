@@ -1,9 +1,11 @@
 <?php
 include("database.php");
+//print (var_dump($_POST));
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $password = $_POST["password"];
+$regiao = $_POST["regiao"];
 $genero = $_POST["genero"];
 $nivel_academico = $_POST["nivel_academico"];
 $organizacao = $_POST["organizacao"];
@@ -11,7 +13,8 @@ $tempo_organizacao = $_POST["tempo_organizacao"];
 $atuacao = $_POST["atuacao"];
 $tempo_experiencia = $_POST["tempo_experiencia"];
 $empresa = $_POST["empresa"];
-
+$atividade = $_POST["atividade"];
+$cargo = $_POST["cargo"];
 
 $pdo = new PDO($database_conexao, $database_username, $database_senha);
 
@@ -24,7 +27,7 @@ $empresaux = $statement->fetch(\PDO::FETCH_ASSOC);
 
 //echo var_dump($empresaux);
 
-$query = "INSERT INTO user (nome, email, password, genero, nivel_academico, organizacao, tempo_organizacao, atuacao, tempo_experiencia, code_fk) VALUES (:nome, :email, :password, :genero, :nivel_academico, :organizacao, :tempo_organizacao, :atuacao, :tempo_experiencia, :code_fk);";
+$query = "INSERT INTO user (nome, email, password, genero, nivel_academico, organizacao, tempo_organizacao, atuacao, tempo_experiencia, code_fk, regiao, atividade, cargo) VALUES (:nome, :email, :password, :genero, :nivel_academico, :organizacao, :tempo_organizacao, :atuacao, :tempo_experiencia, :code_fk, :regiao, :atividade, :cargo);";
 			
 $statement = $pdo->prepare($query);
 $statement->bindValue(":nome",$nome);
@@ -37,7 +40,9 @@ $statement->bindValue(":tempo_organizacao",$tempo_organizacao);
 $statement->bindValue(":atuacao",$atuacao);
 $statement->bindValue(":tempo_experiencia",$tempo_experiencia);
 $statement->bindValue(":code_fk",$empresaux["code"]);
-
+$statement->bindValue(":regiao",$regiao);
+$statement->bindValue(":atividade",$atividade);
+$statement->bindValue(":cargo",$cargo);
 //echo var_dump($_POST);
 
 if ($statement->execute()) {
