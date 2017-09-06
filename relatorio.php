@@ -2299,7 +2299,7 @@ if ($empresa != null && $_GET["tipo"] == 1){
         	]);
 
         	var options = {
-        		title: 'Alinhamento Geral - Opinião de Ambos'
+        		title: 'Opinião de Ambos'
         	};
 
         	var ambos = new google.visualization.PieChart(document.getElementById('ambos'));
@@ -2316,7 +2316,7 @@ if ($empresa != null && $_GET["tipo"] == 1){
         	]);
 
         	var options = {
-        		title: 'Alinhamento Geral - Opinião dos Gerentes de TI'
+        		title: 'Opinião dos Gerentes de TI'
         	};
         	
         	var TI = new google.visualization.PieChart(document.getElementById('TI'));
@@ -2333,7 +2333,7 @@ if ($empresa != null && $_GET["tipo"] == 1){
         	]);
 
         	var options = {
-        		title: 'Alinhamento Geral - Opinião dos Gerentes de Negocio'
+        		title: 'Opinião dos Gerentes de Negocio'
         	};
 
         	var negocio = new google.visualization.PieChart(document.getElementById('negocio'));
@@ -3705,7 +3705,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento Critério - Capacidade'
+        		title: 'Capacidade'
         	};
 
         	var capacidade = new google.visualization.PieChart(document.getElementById('capacidade'));
@@ -3722,7 +3722,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento Critério - Compromisso'
+        		title: 'Compromisso'
         	};
 
         	var compromisso = new google.visualization.PieChart(document.getElementById('compromisso'));
@@ -3739,7 +3739,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento Critério - Conhecimento'
+        		title: 'Conhecimento'
         	};
 
         	var conhecimento = new google.visualization.PieChart(document.getElementById('conhecimento'));
@@ -3756,7 +3756,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento Critério - Cooperação'
+        		title: 'Cooperação'
         	};
 
         	var cooperacao = new google.visualization.PieChart(document.getElementById('cooperacao'));
@@ -3772,7 +3772,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento Critério - Coerência'
+        		title: 'Coerência'
         	};
 
         	var coerencia = new google.visualization.PieChart(document.getElementById('coerencia'));
@@ -4578,7 +4578,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento por Funções Administrativas - Planejamento'
+        		title: 'Planejamento'
         	};
 
         	var planejamento = new google.visualization.PieChart(document.getElementById('planejamento'));
@@ -4595,7 +4595,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento por Funções Administrativas - Organização'
+        		title: 'Organização'
         	};
 
         	var organizacao = new google.visualization.PieChart(document.getElementById('organizacao'));
@@ -4612,7 +4612,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento por Funções Administrativas - Direção'
+        		title: 'Direção'
         	};
 
         	var direcao = new google.visualization.PieChart(document.getElementById('direcao'));
@@ -4629,7 +4629,7 @@ print ("MAEC205: ".."<br><br>");
         	]);
 
         	var options = {
-        		title: 'Alinhamento por Funções Administrativas - Controle'
+        		title: 'Controle'
         	};
 
         	var controle = new google.visualization.PieChart(document.getElementById('controle'));
