@@ -2245,12 +2245,27 @@ if ($empresa != null && $_GET["tipo"] == 1){
 
 		}
 	}
-#	print("cont TI: ". $contTI."<br>");
+#	print("<br><br>cont TOTAL: ". $cont."<br>");
+#	print("total nivel 1: ". $acuNivel[0]."<br>");
+#	print("total nivel 2: ". $acuNivel[1]."<br>");
+#	print("total nivel 3: ". $acuNivel[2]."<br>");
+#	print("total nivel 4: ". $acuNivel[3]."<br>");
+#	print("total nivel 5: ". $acuNivel[4]."<br><br><br>");
+
+#	print("<br><br>cont TI: ". $contTI."<br>");
 #	print("total nivel 1: ". $acuTI[0]."<br>");
 #	print("total nivel 2: ". $acuTI[1]."<br>");
 #	print("total nivel 3: ". $acuTI[2]."<br>");
 #	print("total nivel 4: ". $acuTI[3]."<br>");
 #	print("total nivel 5: ". $acuTI[4]."<br><br><br>");
+
+#	print("<br><br>cont TI: ". $contNegocio."<br>");
+#	print("total nivel 1: ". $acuNegocio[0]."<br>");
+#	print("total nivel 2: ". $acuNegocio[1]."<br>");
+#	print("total nivel 3: ". $acuNegocio[2]."<br>");
+#	print("total nivel 4: ". $acuNegocio[3]."<br>");
+#	print("total nivel 5: ". $acuNegocio[4]."<br><br><br>");
+
 
 
 
@@ -4684,6 +4699,799 @@ print ("MAEC205: ".."<br><br>");
 #####################################################################################################
 #####################################################################################################
 } else if ($empresa != null && $_GET["tipo"] == 8){
+	$cont = 0;
+
+	$contTINegocio = 0;
+	$contNegocioTI = 0;
+
+	$acuTINegocio = array(0,0,0,0,0);
+	$acuNegocioTI = array(0,0,0,0,0);
+
+	$query = "SELECT * FROM user WHERE CODE_FK=:empresa";
+ 
+	$statement = $pdo->prepare($query);
+	$statement->bindValue(":empresa",$empresa);
+	$statement->execute();
+
+	while ($user = $statement->fetch(\PDO::FETCH_ASSOC)) {
+		$query = "SELECT * FROM formulario WHERE fk_email_user=:user";
+		$smt = $pdo->prepare($query);
+		$smt->bindValue(":user",$user["email"]);
+		$smt->execute();
+		if ($form = $smt->fetch(\PDO::FETCH_ASSOC)){
+			$cont += 1;
+
+			if($form["MAEP101"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEP101"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEP101"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEP101"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEP101"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEP102"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEP102"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEP102"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEP102"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEP102"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEP103"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEP103"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEP103"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEP103"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEP103"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEP104"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEP104"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEP104"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEP104"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEP104"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEP105"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEP105"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEP105"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEP105"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEP105"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+#############################################################################
+
+			if($form["MAEP201"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEP201"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEP201"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEP201"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEP201"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEP202"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEP202"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEP202"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEP202"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEP202"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEP203"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEP203"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEP203"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEP203"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEP203"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEP204"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEP204"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEP204"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEP204"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEP204"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEP205"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEP205"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEP205"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEP205"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEP205"] == 5) {
+				$acuTINegocio[4] += 1;  }
+############################################################################			
+	
+			if($form["MAEO101"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO101"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO101"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO101"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO101"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO102"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO102"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO102"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO102"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO102"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO103"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO103"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO103"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO103"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO103"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO104"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO104"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO104"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO104"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO104"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO105"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO105"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO105"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO105"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO105"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+############################################################################## 
+
+			if($form["MAEO201"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO201"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO201"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO201"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO201"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEO202"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO202"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO202"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO202"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO202"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEO203"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO203"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO203"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO203"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO203"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEO204"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO204"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO204"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO204"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO204"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEO205"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO205"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO205"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO205"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO205"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAEO301"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO301"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO301"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO301"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO301"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO302"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO302"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO302"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO302"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO302"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO303"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO303"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO303"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO303"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO303"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO304"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO304"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO304"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO304"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO304"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO305"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO305"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO305"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO305"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO305"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+
+#################################################################################
+
+			if($form["MAEO401"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO401"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO401"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO401"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO401"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO402"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO402"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO402"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO402"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO402"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO403"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO403"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO403"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO403"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO403"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEO404"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO404"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO404"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO404"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO404"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEO405"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEO405"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEO405"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEO405"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEO405"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+
+
+#################################################################################
+
+			if($form["MAEO501"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO501"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO501"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO501"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO501"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEO502"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO502"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO502"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO502"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO502"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEO503"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO503"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO503"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO503"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO503"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEO504"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO504"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO504"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO504"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO504"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEO505"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEO505"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEO505"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEO505"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEO505"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED101"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED101"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED101"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED101"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED101"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAED102"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED102"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED102"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED102"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED102"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAED103"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED103"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED103"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED103"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED103"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAED104"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED104"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED104"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED104"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED104"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAED105"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED105"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED105"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED105"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED105"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED201"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAED201"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAED201"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAED201"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAED201"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAED202"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAED202"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAED202"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAED202"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAED202"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAED203"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAED203"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAED203"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAED203"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAED203"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAED204"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAED204"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAED204"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAED204"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAED204"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAED205"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAED205"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAED205"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAED205"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAED205"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED301"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED301"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED301"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED301"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED301"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAED302"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED302"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED302"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED302"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED302"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAED303"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED303"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED303"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED303"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED303"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAED304"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED304"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED304"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED304"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED304"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAED305"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAED305"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAED305"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAED305"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAED305"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+
+
+#################################################################################
+
+			if($form["MAEC101"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEC101"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEC101"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEC101"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEC101"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEC102"] == 1) {
+				$acuNegocioTI[0] += 1;  } 
+			else if($form["MAEC102"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEC102"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEC102"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEC102"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEC103"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEC103"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEC103"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEC103"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEC103"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+			if($form["MAEC104"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEC104"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEC104"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEC104"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEC104"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+			if($form["MAEC105"] == 1) {
+				$acuNegocioTI[0] += 1;  }
+			else if($form["MAEC105"] == 2) {
+				$acuNegocioTI[1] += 1;  }
+			else if($form["MAEC105"] == 3) {
+				$acuNegocioTI[2] += 1;  }
+			else if($form["MAEC105"] == 4) {
+				$acuNegocioTI[3] += 1;  }
+			else if($form["MAEC105"] == 5) {
+				$acuNegocioTI[4] += 1;  }
+
+
+
+#################################################################################
+			if($form["MAEC201"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEC201"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEC201"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEC201"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEC201"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEC202"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEC202"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEC202"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEC202"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEC202"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEC203"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEC203"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEC203"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEC203"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEC203"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+
+			if($form["MAEC204"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEC204"] == 2) {
+				$acuTINegocio[1] += 1;  }
+			else if($form["MAEC204"] == 3) {
+				$acuTINegocio[2] += 1;  }
+			else if($form["MAEC204"] == 4) {
+				$acuTINegocio[3] += 1;  }
+			else if($form["MAEC204"] == 5) {
+				$acuTINegocio[4] += 1;  }
+
+			if($form["MAEC205"] == 1) {
+				$acuTINegocio[0] += 1;  }
+			else if($form["MAEC205"] == 2) {
+				$acuTINegocio[1] += 1; }
+			else if($form["MAEC205"] == 3) {
+				$acuTINegocio[2] += 1; }
+			else if($form["MAEC205"] == 4) {
+				$acuTINegocio[3] += 1; }
+			else if($form["MAEC205"] == 5) {
+				$acuTINegocio[4] += 1; }
+			}
+		}
+
+
+	$pizza = "      
+		google.charts.load('current', {'packages':['corechart']});
+    	google.charts.setOnLoadCallback(drawChart);
+
+    	function drawChart() {
+
+    		var data = google.visualization.arrayToDataTable([
+       			['Alinhamento', 'Percentual'],
+        		['Alinhamento Inexistente', ".($acuTINegocio[0]*100)/($cont*25) ."],
+        		['Alinhamento Fraco', ".($acuTINegocio[1]*100)/($cont*25) ."],
+        		['Alinhamento Moderado', ". ($acuTINegocio[2]*100)/($cont*25)."],
+        		['Alinhamento Forte', ".($acuTINegocio[3]*100)/($cont*25) ."],
+        		['Alinhamento Total', ". ($acuTINegocio[4]*100)/($cont*25)."]
+        	]);
+
+        	var options = {
+        		title: 'TI para Negócio'
+        	};
+
+        	var tinegocio = new google.visualization.PieChart(document.getElementById('tinegocio'));
+        	tinegocio.draw(data, options);
+        
+    		var data = google.visualization.arrayToDataTable([
+       			['Alinhamento', 'Percentual'],
+        		['Alinhamento Inexistente', ".($acuNegocioTI[0]*100)/($cont*35) ."],
+        		['Alinhamento Fraco', ".($acuNegocioTI[1]*100)/($cont*35) ."],
+        		['Alinhamento Moderado', ". ($acuNegocioTI[2]*100)/($cont*35)."],
+        		['Alinhamento Forte', ".($acuNegocioTI[3]*100)/($cont*35) ."],
+        		['Alinhamento Total', ". ($acuNegocioTI[4]*100)/($cont*35)."]
+        	]);
+
+        	var options = {
+        		title: 'Negócio para TI'
+        	};
+
+        	var negocioti = new google.visualization.PieChart(document.getElementById('negocioti'));
+        	negocioti.draw(data, options);        
+
+        }
+        ";
+
+    $html_string = file_get_contents("pages/relatorio-template-orientacao.html");
+    $html = str_replace('pizza1', $pizza, $html_string);
+    echo $html;
+
 
 #####################################################################################################
 #####################################################################################################
