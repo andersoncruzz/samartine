@@ -3777,8 +3777,31 @@ print ("MAEC205: ".."<br><br>");
 
         	var coerencia = new google.visualization.PieChart(document.getElementById('coerencia'));
         	coerencia.draw(data, options);
+      }
 
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart2);
 
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Alcance', 'Não alcançadas', 'Pouco alcançadas', 'Moderamente alcançadas', 'Muito alcançadas', 'Totalmente alcançadas'],
+          ['Capacidade',".($acuCapacidade[0]*100)/($cont*12) .", ".($acuCapacidade[1]*100)/($cont*12) .",". ($acuCapacidade[2]*100)/($cont*12) .",".($acuCapacidade[3]*100)/($cont*12) .",".($acuCapacidade[4]*100)/($cont*12) ." ],
+          ['Compromisso', ". ($acuCompromisso[0]*100)/($cont*12) .", ". ($acuCompromisso[1]*100)/($cont*12).",". ($acuCompromisso[2]*100)/($cont*12).",".($acuCompromisso[3]*100)/($cont*12) .",".($acuCompromisso[4]*100)/($cont*12) ."],
+          ['Conhecimento',". ($acuConhecimento[0]*100)/($cont*12).", ".($acuConhecimento[1]*100)/($cont*12) .",". ($acuConhecimento[2]*100)/($cont*12).",".($acuConhecimento[3]*100)/($cont*12) .",".($acuConhecimento[4]*100)/($cont*12) ."],
+          ['Cooperação',".($acuCooperacao[0]*100)/($cont*12) .", ". ($acuCooperacao[1]*100)/($cont*12).",".($acuCooperacao[2]*100)/($cont*12) .",".($acuCooperacao[3]*100)/($cont*12) .",". ($acuCooperacao[4]*100)/($cont*12)."],
+          ['Coerência', ".($acuCoerencia[0]*100)/($cont*12) .", ".($acuCoerencia[1]*100)/($cont*12) .",".($acuCoerencia[2]*100)/($cont*12) .",". ($acuCoerencia[3]*100)/($cont*12).",". ($acuCoerencia[4]*100)/($cont*12)."]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Critérios',
+            subtitle: 'Capacidade, Compromisso, Conhecimento, Cooperação, Coerência',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('graphbar'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
 
 	";
