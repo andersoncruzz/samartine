@@ -3794,7 +3794,7 @@ print ("MAEC205: ".."<br><br>");
 
         var options = {
           chart: {
-            title: 'Critérios',
+            title: 'Percentual de Alcance das Metas de Alinhamento por Critérios',
             subtitle: 'Capacidade, Compromisso, Conhecimento, Cooperação, Coerência',
           }
         };
