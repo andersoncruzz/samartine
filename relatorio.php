@@ -3784,24 +3784,25 @@ print ("MAEC205: ".."<br><br>");
 
       function drawChart2() {
         var data = google.visualization.arrayToDataTable([
-          ['Alcance', 'Não alcançadas', 'Pouco alcançadas', 'Moderamente alcançadas', 'Muito alcançadas', 'Totalmente alcançadas'],
-          ['Capacidade',".($acuCapacidade[0]*100)/($cont*12) .", ".($acuCapacidade[1]*100)/($cont*12) .",". ($acuCapacidade[2]*100)/($cont*12) .",".($acuCapacidade[3]*100)/($cont*12) .",".($acuCapacidade[4]*100)/($cont*12) ." ],
-          ['Compromisso', ". ($acuCompromisso[0]*100)/($cont*12) .", ". ($acuCompromisso[1]*100)/($cont*12).",". ($acuCompromisso[2]*100)/($cont*12).",".($acuCompromisso[3]*100)/($cont*12) .",".($acuCompromisso[4]*100)/($cont*12) ."],
-          ['Conhecimento',". ($acuConhecimento[0]*100)/($cont*12).", ".($acuConhecimento[1]*100)/($cont*12) .",". ($acuConhecimento[2]*100)/($cont*12).",".($acuConhecimento[3]*100)/($cont*12) .",".($acuConhecimento[4]*100)/($cont*12) ."],
-          ['Cooperação',".($acuCooperacao[0]*100)/($cont*12) .", ". ($acuCooperacao[1]*100)/($cont*12).",".($acuCooperacao[2]*100)/($cont*12) .",".($acuCooperacao[3]*100)/($cont*12) .",". ($acuCooperacao[4]*100)/($cont*12)."],
-          ['Coerência', ".($acuCoerencia[0]*100)/($cont*12) .", ".($acuCoerencia[1]*100)/($cont*12) .",".($acuCoerencia[2]*100)/($cont*12) .",". ($acuCoerencia[3]*100)/($cont*12).",". ($acuCoerencia[4]*100)/($cont*12)."]
+          ['Critérios', 'Alinhamento Inexistente', 'Alinhamento Fraco', 'Alinhamento Moderado', 'Alinhamento Forte', 'Alinhamento Total'],
+          ['Capacidade',".($acuCapacidade[0]*100)/($cont*12).",". ($acuCapacidade[1]*100)/($cont*12).",". ($acuCapacidade[2]*100)/($cont*12).",".($acuCapacidade[3]*100)/($cont*12) .",".($acuCapacidade[4]*100)/($cont*12) ."],
+          ['Compromisso',".($acuCompromisso[0]*100)/($cont*12) .",".($acuCompromisso[1]*100)/($cont*12) .",". ($acuCompromisso[2]*100)/($cont*12).",". ($acuCompromisso[3]*100)/($cont*12).",". ($acuCompromisso[4]*100)/($cont*12)."],
+          ['Conhecimento',".($acuConhecimento[0]*100)/($cont*12) .",".($acuConhecimento[1]*100)/($cont*12) .",".($acuConhecimento[2]*100)/($cont*12) .",". ($acuConhecimento[3]*100)/($cont*12).",". ($acuConhecimento[4]*100)/($cont*12)."],
+          ['Cooperação',".($acuCooperacao[0]*100)/($cont*12) .",". ($acuCooperacao[1]*100)/($cont*12).",".($acuCooperacao[2]*100)/($cont*12) .",". ($acuCooperacao[3]*100)/($cont*12).",". ($acuCooperacao[4]*100)/($cont*12)."],
+          ['Coerência',".($acuCoerencia[0]*100)/($cont*12) .",". ($acuCoerencia[1]*100)/($cont*12).",".($acuCoerencia[2]*100)/($cont*12) .",". ($acuCoerencia[3]*100)/($cont*12).",". ($acuCoerencia[4]*100)/($cont*12)."]
         ]);
 
         var options = {
           chart: {
-            title: 'Percentual de Alcance das Metas de Alinhamento por Critérios',
-            subtitle: 'Capacidade, Compromisso, Conhecimento, Cooperação, Coerência',
-          }
+            title: 'Alinhamento por Critérios em Percentual (%)',
+            subtitle: 'Alinhamento Inexistente, Alinhamento Fraco, Alinhamento Moderado, Alinhamento Forte, Alinhamento Total',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
         };
 
-        var chart = new google.charts.Bar(document.getElementById('graphbar'));
+        var criterio = new google.charts.Bar(document.getElementById('graphbar'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        criterio.draw(data, google.charts.Bar.convertOptions(options));
       }
 
 	";
@@ -4410,7 +4411,7 @@ print ("MAEC205: ".."<br><br>");
 			else if($form["MAED302"] == 4) {
 				$acuDirecao[3] += 1; }
 			else if($form["MAED302"] == 5) {
-				$acu[4] += 1; }
+				$acuDirecao[4] += 1; }
 
 			if($form["MAED303"] == 1) {
 				$acuDirecao[0] += 1; }
@@ -4570,19 +4571,6 @@ print ("MAEC205: ".."<br><br>");
 		
 
 		}
-	#	echo $cont;
-	#	echo "<br>";
-	#	echo var_dump($acuCapacidade);
-	#	echo "<br>";
-	#	echo var_dump($acuCompromisso);
-	#	echo "<br>";
-	#	echo var_dump($acuConhecimento);
-	#	echo "<br>";
-	#	echo var_dump($acuCooperacao);
-	#	echo "<br>";
-	#	echo var_dump($acuCoerencia);
-	#	echo "<br>";
-
 	}
 
 	$pizza = "      
@@ -4660,6 +4648,32 @@ print ("MAEC205: ".."<br><br>");
 
       }
 
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart2);
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Funções Administrativas', 'Alinhamento Inexistente', 'Alinhamento Fraco', 'Alinhamento Moderado', 'Alinhamento Forte', 'Alinhamento Total'],
+          ['Planejamento',".($acuPlanejamento[0]*100)/($cont*10).",". ($acuPlanejamento[1]*100)/($cont*10).",". ($acuPlanejamento[2]*100)/($cont*10).",".($acuPlanejamento[3]*100)/($cont*10) .",".($acuPlanejamento[4]*100)/($cont*10) ."],
+          ['Organização',".($acuOrganizacao[0]*100)/($cont*25) .",".($acuOrganizacao[1]*100)/($cont*25) .",". ($acuOrganizacao[2]*100)/($cont*25).",". ($acuOrganizacao[3]*100)/($cont*25).",". ($acuOrganizacao[4]*100)/($cont*25)."],
+          ['Direção',".($acuDirecao[0]*100)/($cont*15) .",".($acuDirecao[1]*100)/($cont*15) .",".($acuDirecao[2]*100)/($cont*15) .",". ($acuDirecao[3]*100)/($cont*15).",". ($acuDirecao[4]*100)/($cont*15)."],
+          ['Controle',".($acuControle[0]*100)/($cont*10) .",". ($acuControle[1]*100)/($cont*10).",".($acuControle[2]*100)/($cont*10) .",". ($acuControle[3]*100)/($cont*10).",". ($acuControle[4]*100)/($cont*10)."]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Alinhamento por Funções Administrativas em Percentual (%)',
+            subtitle: 'Alinhamento Inexistente, Alinhamento Fraco, Alinhamento Moderado, Alinhamento Forte, Alinhamento Total',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var func = new google.charts.Bar(document.getElementById('graphbar'));
+
+        func.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+
 	";
 
     $html_string = file_get_contents("pages/relatorio-template-funcadm.html");
@@ -4680,6 +4694,848 @@ print ("MAEC205: ".."<br><br>");
 #####################################################################################################
 #####################################################################################################
 } else if ($empresa != null && $_GET["tipo"] == 5){
+	$cont = 0;
+
+	$acuEstrategica = array(0,0,0,0,0);
+	$acuCultural = array(0,0,0,0,0);
+	$acuSocial = array(0,0,0,0,0);
+	$acuEstrutural = array(0,0,0,0,0);
+
+	$query = "SELECT * FROM user WHERE CODE_FK=:empresa";
+ 
+	$statement = $pdo->prepare($query);
+	$statement->bindValue(":empresa",$empresa);
+	$statement->execute();
+
+	while ($user = $statement->fetch(\PDO::FETCH_ASSOC)) {
+		$query = "SELECT * FROM formulario WHERE fk_email_user=:user";
+		$smt = $pdo->prepare($query);
+		$smt->bindValue(":user",$user["email"]);
+		$smt->execute();
+		if ($form = $smt->fetch(\PDO::FETCH_ASSOC)){
+			$cont += 1;
+
+			if($form["MAEP101"] == 1) {
+				$acuEstrategica[0] += 1;
+				$acuCultural[0] += 1;
+			}
+			else if($form["MAEP101"] == 2) {
+				$acuEstrategica[1] += 1;  
+				$acuCultural[1] += 1;
+			}
+			else if($form["MAEP101"] == 3) {
+				$acuEstrategica[2] += 1;  
+				$acuCultural[2] += 1;
+			}
+			else if($form["MAEP101"] == 4) {
+				$acuEstrategica[3] += 1;
+				$acuCultural[3] += 1;
+			}
+			else if($form["MAEP101"] == 5) {
+				$acuEstrategica[4] += 1;  
+				$acuCultural[4] += 1;	
+			}
+
+
+			if($form["MAEP102"] == 1) {
+				$acuEstrategica[0] += 1;  
+				$acuCultural[0] += 1;
+
+			}
+			else if($form["MAEP102"] == 2) {
+				$acuEstrategica[1] += 1;  
+				$acuCultural[1] += 1;
+			}
+			else if($form["MAEP102"] == 3) {
+				$acuEstrategica[2] += 1;  
+				$acuCultural[2] += 1;
+			}
+			else if($form["MAEP102"] == 4) {
+				$acuEstrategica[3] += 1;  
+				$acuCultural[3] += 1;
+			}
+			else if($form["MAEP102"] == 5) {
+				$acuEstrategica[4] += 1;  
+				$acuCultural[4] += 1;
+			}
+
+			if($form["MAEP103"] == 1) {
+				$acuEstrategica[0] += 1;  
+				$acuCultural[0] += 1;
+			}
+			else if($form["MAEP103"] == 2) {
+				$acuEstrategica[1] += 1;  
+				$acuCultural[1] += 1;
+			}
+			else if($form["MAEP103"] == 3) {
+				$acuEstrategica[2] += 1;  
+				$acuCultural[2] += 1;
+			}
+			else if($form["MAEP103"] == 4) {
+				$acuEstrategica[3] += 1;  
+				$acuCultural[3] += 1;
+			}
+			else if($form["MAEP103"] == 5) {
+				$acuEstrategica[4] += 1;  
+				$acuCultural[4] += 1;
+			}
+
+
+			if($form["MAEP104"] == 1) {
+				$acuEstrategica[0] += 1;  
+				$acuSocial[0] += 1;
+			}
+			else if($form["MAEP104"] == 2) {
+				$acuEstrategica[1] += 1;  
+				$acuSocial[1] += 1;
+			}
+			else if($form["MAEP104"] == 3) {
+				$acuEstrategica[2] += 1;  
+				$acuSocial[2] += 1;
+			}
+			else if($form["MAEP104"] == 4) {
+				$acuEstrategica[3] += 1;  
+				$acuSocial[3] += 1;
+			}
+			else if($form["MAEP104"] == 5) {
+				$acuEstrategica[4] += 1;  
+				$acuSocial[4] += 1;
+			}
+
+			if($form["MAEP105"] == 1) {
+				$acuEstrategica[0] += 1;  
+				#$acuCultural[0] += 1;
+			}
+			else if($form["MAEP105"] == 2) {
+				$acuEstrategica[1] += 1;  
+				#$acuCultural[1] += 1;
+			}
+			else if($form["MAEP105"] == 3) {
+				$acuEstrategica[2] += 1;  
+				#$acuCultural[2] += 1;
+			}
+			else if($form["MAEP105"] == 4) {
+				$acuEstrategica[3] += 1;  
+				#$acuCultural[3] += 1;
+			}
+			else if($form["MAEP105"] == 5) {
+				$acuEstrategica[4] += 1;  
+				#$acuCultural[4] += 1;
+			}
+
+
+#############################################################################
+
+			if($form["MAEP201"] == 1) {
+				$acuEstrategica[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEP201"] == 2) {
+				$acuEstrategica[1] += 1;  $acuCultural[1] += 1;}
+			else if($form["MAEP201"] == 3) {
+				$acuEstrategica[2] += 1; $acuCultural[2] += 1; }
+			else if($form["MAEP201"] == 4) {
+				$acuEstrategica[3] += 1; $acuCultural[3] += 1; }
+			else if($form["MAEP201"] == 5) {
+				$acuEstrategica[4] += 1; $acuCultural[4] += 1; }
+
+
+			if($form["MAEP202"] == 1) {
+				$acuEstrategica[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEP202"] == 2) {
+				$acuEstrategica[1] += 1; $acuCultural[1] += 1; }
+			else if($form["MAEP202"] == 3) {
+				$acuEstrategica[2] += 1; $acuCultural[2] += 1;}
+			else if($form["MAEP202"] == 4) {
+				$acuEstrategica[3] += 1; $acuCultural[3] += 1; }
+			else if($form["MAEP202"] == 5) {
+				$acuEstrategica[4] += 1; $acuCultural[4] += 1; }
+
+			if($form["MAEP203"] == 1) {
+				$acuEstrategica[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEP203"] == 2) {
+				$acuEstrategica[1] += 1; $acuCultural[1] += 1;}
+			else if($form["MAEP203"] == 3) {
+				$acuEstrategica[2] += 1; $acuCultural[2] += 1; }
+			else if($form["MAEP203"] == 4) {
+				$acuEstrategica[3] += 1; $acuCultural[3] += 1; }
+			else if($form["MAEP203"] == 5) {
+				$acuEstrategica[4] += 1; $acuCultural[4] += 1; }
+
+
+			if($form["MAEP204"] == 1) {
+				$acuEstrategica[0] += 1; $acuSocial[0] += 1; }
+			else if($form["MAEP204"] == 2) {
+				$acuEstrategica[1] += 1; $acuSocial[1] += 1; }
+			else if($form["MAEP204"] == 3) {
+				$acuEstrategica[2] += 1; $acuSocial[2] += 1; }
+			else if($form["MAEP204"] == 4) {
+				$acuEstrategica[3] += 1; $acuSocial[3] += 1;}
+			else if($form["MAEP204"] == 5) {
+				$acuEstrategica[4] += 1; $acuSocial[4] += 1; }
+
+			if($form["MAEP205"] == 1) {
+				$acuEstrategica[0] += 1;  }
+			else if($form["MAEP205"] == 2) {
+				$acuEstrategica[1] += 1;  }
+			else if($form["MAEP205"] == 3) {
+				$acuEstrategica[2] += 1;  }
+			else if($form["MAEP205"] == 4) {
+				$acuEstrategica[3] += 1;  }
+			else if($form["MAEP205"] == 5) {
+				$acuEstrategica[4] += 1;  }
+############################################################################			
+	
+			if($form["MAEO101"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO101"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO101"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO101"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO101"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO102"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO102"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO102"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO102"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO102"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEO103"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO103"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO103"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO103"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO103"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO104"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEO104"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEO104"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEO104"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEO104"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEO105"] == 1) {
+				$acuEstrutural[0] += 1;  }
+			else if($form["MAEO105"] == 2) {
+				$acuEstrutural[1] += 1; }
+			else if($form["MAEO105"] == 3) {
+				$acuEstrutural[2] += 1;  }
+			else if($form["MAEO105"] == 4) {
+				$acuEstrutural[3] += 1;  }
+			else if($form["MAEO105"] == 5) {
+				$acuEstrutural[4] += 1;  }
+
+############################################################################## 
+
+			if($form["MAEO201"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO201"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO201"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO201"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO201"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO202"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO202"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO202"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO202"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO202"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEO203"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO203"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO203"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO203"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO203"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO204"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEO204"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEO204"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEO204"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEO204"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEO205"] == 1) {
+				$acuEstrutural[0] += 1;  }
+			else if($form["MAEO205"] == 2) {
+				$acuEstrutural[1] += 1;  }
+			else if($form["MAEO205"] == 3) {
+				$acuEstrutural[2] += 1;  }
+			else if($form["MAEO205"] == 4) {
+				$acuEstrutural[3] += 1;  }
+			else if($form["MAEO205"] == 5) {
+				$acuEstrutural[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAEO301"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO301"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO301"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO301"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO301"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO302"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO302"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO302"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO302"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO302"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEO303"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO303"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO303"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO303"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO303"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO304"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEO304"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEO304"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEO304"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEO304"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEO305"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO305"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO305"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO305"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO305"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1; $acuCultural[4] += 1;  }
+
+
+
+#################################################################################
+
+			if($form["MAEO401"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO401"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO401"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO401"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO401"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO402"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO402"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO402"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO402"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO402"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEO403"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO403"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO403"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO403"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO403"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO404"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEO404"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEO404"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEO404"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEO404"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEO405"] == 1) {
+				$acuEstrutural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAEO405"] == 2) {
+				$acuEstrutural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAEO405"] == 3) {
+				$acuEstrutural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAEO405"] == 4) {
+				$acuEstrutural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAEO405"] == 5) {
+				$acuEstrutural[4] += 1; $acuEstrategica[4] += 1;  }
+
+
+
+
+#################################################################################
+
+			if($form["MAEO501"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO501"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO501"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO501"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO501"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO502"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO502"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO502"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO502"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO502"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEO503"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEO503"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEO503"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEO503"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEO503"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEO504"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEO504"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEO504"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEO504"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEO504"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEO505"] == 1) {
+				$acuEstrutural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAEO505"] == 2) {
+				$acuEstrutural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAEO505"] == 3) {
+				$acuEstrutural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAEO505"] == 4) {
+				$acuEstrutural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAEO505"] == 5) {
+				$acuEstrutural[4] += 1; $acuEstrategica[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED101"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED101"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED101"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED101"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED101"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAED102"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED102"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED102"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED102"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED102"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAED103"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED103"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED103"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED103"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED103"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAED104"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED104"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED104"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED104"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED104"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAED105"] == 1) {
+				$acuEstrutural[0] += 1;  }
+			else if($form["MAED105"] == 2) {
+				$acuEstrutural[1] += 1;  }
+			else if($form["MAED105"] == 3) {
+				$acuEstrutural[2] += 1;  }
+			else if($form["MAED105"] == 4) {
+				$acuEstrutural[3] += 1;  }
+			else if($form["MAED105"] == 5) {
+				$acuEstrutural[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED201"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED201"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED201"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED201"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED201"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAED202"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED202"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED202"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED202"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED202"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAED203"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED203"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED203"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED203"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED203"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAED204"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAED204"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAED204"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAED204"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAED204"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAED205"] == 1) {
+				$acuEstrutural[0] += 1;  }
+			else if($form["MAED205"] == 2) {
+				$acuEstrutural[1] += 1;  }
+			else if($form["MAED205"] == 3) {
+				$acuEstrutural[2] += 1;  }
+			else if($form["MAED205"] == 4) {
+				$acuEstrutural[3] += 1;  }
+			else if($form["MAED205"] == 5) {
+				$acuEstrutural[4] += 1;  }
+
+
+
+################################################################################
+
+			if($form["MAED301"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAED301"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAED301"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAED301"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAED301"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1; $acuEstrategica[4] += 1;  }
+
+
+			if($form["MAED302"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAED302"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAED302"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAED302"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAED302"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1; $acuEstrategica[4] += 1;  }
+
+			if($form["MAED303"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAED303"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAED303"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAED303"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAED303"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1; $acuEstrategica[4] += 1;  }
+
+
+			if($form["MAED304"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1; $acuEstrategica[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAED304"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1; $acuEstrategica[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAED304"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1; $acuEstrategica[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAED304"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1; $acuEstrategica[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAED304"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1; $acuEstrategica[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAED305"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1; $acuEstrategica[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAED305"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1; $acuEstrategica[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAED305"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1; $acuEstrategica[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAED305"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1; $acuEstrategica[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAED305"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1; $acuEstrategica[4] += 1; $acuSocial[4] += 1;  }
+
+
+
+
+#################################################################################
+
+			if($form["MAEC101"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEC101"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC101"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC101"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC101"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEC102"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  } 
+			else if($form["MAEC102"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC102"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC102"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC102"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEC103"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEC103"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC103"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC103"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC103"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEC104"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEC104"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEC104"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEC104"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEC104"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEC105"] == 1) {
+				$acuEstrutural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAEC105"] == 2) {
+				$acuEstrutural[1] += 1; $acuEstrategica[1] += 1;  }
+			else if($form["MAEC105"] == 3) {
+				$acuEstrutural[2] += 1; $acuEstrategica[2] += 1;  }
+			else if($form["MAEC105"] == 4) {
+				$acuEstrutural[3] += 1; $acuEstrategica[3] += 1;  }
+			else if($form["MAEC105"] == 5) {
+				$acuEstrutural[4] += 1; $acuEstrategica[4] += 1;  }
+
+
+
+#################################################################################
+			if($form["MAEC201"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEC201"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC201"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC201"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC201"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEC202"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEC202"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC202"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC202"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC202"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+			if($form["MAEC203"] == 1) {
+				$acuEstrutural[0] += 1; $acuCultural[0] += 1;  }
+			else if($form["MAEC203"] == 2) {
+				$acuEstrutural[1] += 1; $acuCultural[1] += 1;  }
+			else if($form["MAEC203"] == 3) {
+				$acuEstrutural[2] += 1; $acuCultural[2] += 1;  }
+			else if($form["MAEC203"] == 4) {
+				$acuEstrutural[3] += 1; $acuCultural[3] += 1;  }
+			else if($form["MAEC203"] == 5) {
+				$acuEstrutural[4] += 1; $acuCultural[4] += 1;  }
+
+
+			if($form["MAEC204"] == 1) {
+				$acuEstrutural[0] += 1; $acuSocial[0] += 1;  }
+			else if($form["MAEC204"] == 2) {
+				$acuEstrutural[1] += 1; $acuSocial[1] += 1;  }
+			else if($form["MAEC204"] == 3) {
+				$acuEstrutural[2] += 1; $acuSocial[2] += 1;  }
+			else if($form["MAEC204"] == 4) {
+				$acuEstrutural[3] += 1; $acuSocial[3] += 1;  }
+			else if($form["MAEC204"] == 5) {
+				$acuEstrutural[4] += 1; $acuSocial[4] += 1;  }
+
+			if($form["MAEC205"] == 1) {
+				$acuEstrutural[0] += 1; $acuEstrategica[0] += 1;  }
+			else if($form["MAEC205"] == 2) {
+				$acuEstrutural[1] += 1; $acuEstrategica[1] += 1; }
+			else if($form["MAEC205"] == 3) {
+				$acuEstrutural[2] += 1; $acuEstrategica[2] += 1; }
+			else if($form["MAEC205"] == 4) {
+				$acuEstrutural[3] += 1; $acuEstrategica[3] += 1; }
+			else if($form["MAEC205"] == 5) {
+				$acuEstrutural[4] += 1; $acuEstrategica[4] += 1; }
+			}
+		}
+
+
+/*
+        		['Alinhamento Inexistente', ".($acuTINegocio[0]*100)/($cont*25) ."],
+        		['Alinhamento Fraco', ".($acuTINegocio[1]*100)/($cont*25) ."],
+        		['Alinhamento Moderado', ". ($acuTINegocio[2]*100)/($cont*25)."],
+        		['Alinhamento Forte', ".($acuTINegocio[3]*100)/($cont*25) ."],
+        		['Alinhamento Total', ". ($acuTINegocio[4]*100)/($cont*25)."]
+
+*/
+
+
+	$pizza = "      
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dimensões', 'Alinhamento Inexistente', 'Alinhamento Fraco', 'Alinhamento Moderado', 'Alinhamento Forte', 'Alinhamento Total'],
+          ['Estratégica',".($acuEstrategica[0]*100)/($cont*19).",". ($acuEstrategica[1]*100)/($cont*19).",". ($acuEstrategica[2]*100)/($cont*19).",".($acuEstrategica[3]*100)/($cont*19) .",".($acuEstrategica[4]*100)/($cont*19) ."],
+          ['Cultural',".($acuCultural[0]*100)/($cont*41) .",".($acuCultural[1]*100)/($cont*41) .",". ($acuCultural[2]*100)/($cont*41).",". ($acuCultural[3]*100)/($cont*41).",". ($acuCultural[4]*100)/($cont*41)."],
+          ['Social',".($acuSocial[0]*100)/($cont*12) .",".($acuSocial[1]*100)/($cont*12) .",".($acuSocial[2]*100)/($cont*12) .",". ($acuSocial[3]*100)/($cont*12).",". ($acuSocial[4]*100)/($cont*12)."],
+          ['Estrutural',".($acuEstrutural[0]*100)/($cont*50) .",". ($acuEstrutural[1]*100)/($cont*50).",".($acuEstrutural[2]*100)/($cont*50) .",". ($acuEstrutural[3]*100)/($cont*50).",". ($acuEstrutural[4]*100)/($cont*50)."]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Alinhamento por Dimensões em Percentual (%)',
+            subtitle: 'Alinhamento Inexistente, Alinhamento Fraco, Alinhamento Moderado, Alinhamento Forte, Alinhamento Total',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var dimensoes = new google.charts.Bar(document.getElementById('dimensao'));
+
+        dimensoes.draw(data, google.charts.Bar.convertOptions(options));
+      }
+        ";
+
+    $html_string = file_get_contents("pages/relatorio-template-dimensao.html");
+    $html = str_replace('pizza1', $pizza, $html_string);
+    echo $html;
+
+
+
+
 
 #####################################################################################################
 #####################################################################################################
@@ -4695,6 +5551,797 @@ print ("MAEC205: ".."<br><br>");
 #####################################################################################################
 } else if ($empresa != null && $_GET["tipo"] == 6){
 
+	$cont = 0;
+
+	$acuObjTI = array(0,0,0,0,0);
+	$acuObjNegocio = array(0,0,0,0,0);
+	$acuGesTI = array(0,0,0,0,0);
+	$acuGesNegocio = array(0,0,0,0,0);
+	$acuInfraTI = array(0,0,0,0,0);
+	$acuInfraNegocio = array(0,0,0,0,0);
+	$acuProcTI = array(0,0,0,0,0);
+	$acuProcNegocio = array(0,0,0,0,0);
+
+
+
+	$query = "SELECT * FROM user WHERE CODE_FK=:empresa";
+ 
+	$statement = $pdo->prepare($query);
+	$statement->bindValue(":empresa",$empresa);
+	$statement->execute();
+
+	while ($user = $statement->fetch(\PDO::FETCH_ASSOC)) {
+		$query = "SELECT * FROM formulario WHERE fk_email_user=:user";
+		$smt = $pdo->prepare($query);
+		$smt->bindValue(":user",$user["email"]);
+		$smt->execute();
+		if ($form = $smt->fetch(\PDO::FETCH_ASSOC)){
+			$cont += 1 ;
+
+			if($form["MAEP101"] == 1) {
+				$acuObjTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEP101"] == 2) {
+				$acuObjTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEP101"] == 3) {
+				$acuObjTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEP101"] == 4) {
+				$acuObjTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEP101"] == 5) {
+				$acuObjTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEP102"] == 1) {
+				$acuObjTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEP102"] == 2) {
+				$acuObjTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEP102"] == 3) {
+				$acuObjTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEP102"] == 4) {
+				$acuObjTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEP102"] == 5) {
+				$acuObjTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEP103"] == 1) {
+				$acuObjTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEP103"] == 2) {
+				$acuObjTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEP103"] == 3) {
+				$acuObjTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEP103"] == 4) {
+				$acuObjTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEP103"] == 5) {
+				$acuObjTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEP104"] == 1) {
+				$acuObjTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEP104"] == 2) {
+				$acuObjTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEP104"] == 3) {
+				$acuObjTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEP104"] == 4) {
+				$acuObjTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEP104"] == 5) {
+				$acuObjTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEP105"] == 1) {
+				$acuObjTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEP105"] == 2) {
+				$acuObjTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEP105"] == 3) {
+				$acuObjTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEP105"] == 4) {
+				$acuObjTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEP105"] == 5) {
+				$acuObjTI[4] += 1; $acuObjNegocio[4] += 1; }
+
+
+#############################################################################
+
+			if($form["MAEP201"] == 1) {
+				$acuObjNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEP201"] == 2) {
+				$acuObjNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEP201"] == 3) {
+				$acuObjNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEP201"] == 4) {
+				$acuObjNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEP201"] == 5) {
+				$acuObjNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEP202"] == 1) {
+				$acuObjNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEP202"] == 2) {
+				$acuObjNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEP202"] == 3) {
+				$acuObjNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEP202"] == 4) {
+				$acuObjNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEP202"] == 5) {
+				$acuObjNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEP203"] == 1) {
+				$acuObjNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEP203"] == 2) {
+				$acuObjNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEP203"] == 3) {
+				$acuObjNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEP203"] == 4) {
+				$acuObjNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEP203"] == 5) {
+				$acuObjNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEP204"] == 1) {
+				$acuObjNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEP204"] == 2) {
+				$acuObjNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEP204"] == 3) {
+				$acuObjNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEP204"] == 4) {
+				$acuObjNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEP204"] == 5) {
+				$acuObjNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEP205"] == 1) {
+				$acuObjNegocio[0] += 1; $acuObjTI[0] += 1; }
+			else if($form["MAEP205"] == 2) {
+				$acuObjNegocio[1] += 1; $acuObjTI[1] += 1; }
+			else if($form["MAEP205"] == 3) {
+				$acuObjNegocio[2] += 1; $acuObjTI[2] += 1; }
+			else if($form["MAEP205"] == 4) {
+				$acuObjNegocio[3] += 1; $acuObjTI[3] += 1; }
+			else if($form["MAEP205"] == 5) {
+				$acuObjNegocio[4] += 1; $acuObjTI[4] += 1; }
+############################################################################			
+	
+			if($form["MAEO101"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO101"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO101"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO101"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO101"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEO102"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO102"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO102"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO102"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO102"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEO103"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuObjTI[0] += 1; }
+			else if($form["MAEO103"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuObjTI[1] += 1; }
+			else if($form["MAEO103"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuObjTI[2] += 1; }
+			else if($form["MAEO103"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuObjTI[3] += 1; }
+			else if($form["MAEO103"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuObjTI[4] += 1; }
+
+
+			if($form["MAEO104"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO104"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO104"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO104"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO104"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO105"] == 1) {
+				$acuProcTI[0] += 1; $acuObjTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEO105"] == 2) {
+				$acuProcTI[1] += 1; $acuObjTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEO105"] == 3) {
+				$acuProcTI[2] += 1; $acuObjTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEO105"] == 4) {
+				$acuProcTI[3] += 1; $acuObjTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEO105"] == 5) {
+				$acuProcTI[4] += 1; $acuObjTI[4] += 1; $acuObjNegocio[4] += 1; }
+
+############################################################################## 
+
+			if($form["MAEO201"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO201"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO201"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO201"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO201"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEO202"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO202"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO202"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO202"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO202"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO203"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEO203"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEO203"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEO203"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEO203"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuObjNegocio[4] += 1; }
+
+
+			if($form["MAEO204"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO204"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO204"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO204"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO204"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO205"] == 1) {
+				$acuProcNegocio[0] += 1; $acuProcTI[0] += 1; }
+			else if($form["MAEO205"] == 2) {
+				$acuProcNegocio[1] += 1; $acuProcTI[1] += 1; }
+			else if($form["MAEO205"] == 3) {
+				$acuProcNegocio[2] += 1; $acuProcTI[2] += 1; }
+			else if($form["MAEO205"] == 4) {
+				$acuProcNegocio[3] += 1; $acuProcTI[3] += 1; }
+			else if($form["MAEO205"] == 5) {
+				$acuProcNegocio[4] += 1; $acuProcTI[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAEO301"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO301"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO301"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO301"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO301"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEO302"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO302"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO302"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO302"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO302"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEO303"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuObjTI[0] += 1; }
+			else if($form["MAEO303"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuObjTI[1] += 1; }
+			else if($form["MAEO303"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuObjTI[2] += 1; }
+			else if($form["MAEO303"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuObjTI[3] += 1; }
+			else if($form["MAEO303"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuObjTI[4] += 1; }
+
+
+			if($form["MAEO304"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO304"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO304"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO304"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO304"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO305"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO305"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO305"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO305"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO305"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+
+#################################################################################
+
+			if($form["MAEO401"] == 1) {
+				$acuInfraNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO401"] == 2) {
+				$acuInfraNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO401"] == 3) {
+				$acuInfraNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO401"] == 4) {
+				$acuInfraNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO401"] == 5) {
+				$acuInfraNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEO402"] == 1) {
+				$acuInfraNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO402"] == 2) {
+				$acuInfraNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO402"] == 3) {
+				$acuInfraNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO402"] == 4) {
+				$acuInfraNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO402"] == 5) {
+				$acuInfraNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEO403"] == 1) {
+				$acuInfraNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO403"] == 2) {
+				$acuInfraNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO403"] == 3) {
+				$acuInfraNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO403"] == 4) {
+				$acuInfraNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO403"] == 5) {
+				$acuInfraNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEO404"] == 1) {
+				$acuInfraNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO404"] == 2) {
+				$acuInfraNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO404"] == 3) {
+				$acuInfraNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO404"] == 4) {
+				$acuInfraNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO404"] == 5) {
+				$acuInfraNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO405"] == 1) {
+				$acuInfraNegocio[0] += 1; $acuProcTI[0] += 1; $acuObjTI[0] += 1; }
+			else if($form["MAEO405"] == 2) {
+				$acuInfraNegocio[1] += 1; $acuProcTI[1] += 1; $acuObjTI[1] += 1; }
+			else if($form["MAEO405"] == 3) {
+				$acuInfraNegocio[2] += 1; $acuProcTI[2] += 1; $acuObjTI[2] += 1; }
+			else if($form["MAEO405"] == 4) {
+				$acuInfraNegocio[3] += 1; $acuProcTI[3] += 1; $acuObjTI[3] += 1; }
+			else if($form["MAEO405"] == 5) {
+				$acuInfraNegocio[4] += 1; $acuProcTI[4] += 1; $acuObjTI[4] += 1; }
+
+
+
+
+#################################################################################
+
+			if($form["MAEO501"] == 1) {
+				$acuInfraTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO501"] == 2) {
+				$acuInfraTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO501"] == 3) {
+				$acuInfraTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO501"] == 4) {
+				$acuInfraTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO501"] == 5) {
+				$acuInfraTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEO502"] == 1) {
+				$acuInfraTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO502"] == 2) {
+				$acuInfraTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO502"] == 3) {
+				$acuInfraTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO502"] == 4) {
+				$acuInfraTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO502"] == 5) {
+				$acuInfraTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEO503"] == 1) {
+				$acuInfraTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEO503"] == 2) {
+				$acuInfraTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEO503"] == 3) {
+				$acuInfraTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEO503"] == 4) {
+				$acuInfraTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEO503"] == 5) {
+				$acuInfraTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEO504"] == 1) {
+				$acuInfraTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEO504"] == 2) {
+				$acuInfraTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEO504"] == 3) {
+				$acuInfraTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEO504"] == 4) {
+				$acuInfraTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEO504"] == 5) {
+				$acuInfraTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEO505"] == 1) {
+				$acuInfraTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEO505"] == 2) {
+				$acuInfraTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEO505"] == 3) {
+				$acuInfraTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEO505"] == 4) {
+				$acuInfraTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEO505"] == 5) {
+				$acuInfraTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuObjNegocio[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED101"] == 1) {
+				$acuObjNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAED101"] == 2) {
+				$acuObjNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAED101"] == 3) {
+				$acuObjNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAED101"] == 4) {
+				$acuObjNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAED101"] == 5) {
+				$acuObjNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAED102"] == 1) {
+				$acuObjNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAED102"] == 2) {
+				$acuObjNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAED102"] == 3) {
+				$acuObjNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAED102"] == 4) {
+				$acuObjNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAED102"] == 5) {
+				$acuObjNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAED103"] == 1) {
+				$acuObjNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAED103"] == 2) {
+				$acuObjNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAED103"] == 3) {
+				$acuObjNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAED103"] == 4) {
+				$acuObjNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAED103"] == 5) {
+				$acuObjNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAED104"] == 1) {
+				$acuObjNegocio[0] += 1; $acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED104"] == 2) {
+				$acuObjNegocio[1] += 1; $acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED104"] == 3) {
+				$acuObjNegocio[2] += 1; $acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED104"] == 4) {
+				$acuObjNegocio[3] += 1; $acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED104"] == 5) {
+				$acuObjNegocio[4] += 1; $acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAED105"] == 1) {
+				$acuObjNegocio[0] += 1; $acuProcTI[0] += 1; }
+			else if($form["MAED105"] == 2) {
+				$acuObjNegocio[1] += 1; $acuProcTI[1] += 1; }
+			else if($form["MAED105"] == 3) {
+				$acuObjNegocio[2] += 1; $acuProcTI[2] += 1; }
+			else if($form["MAED105"] == 4) {
+				$acuObjNegocio[3] += 1; $acuProcTI[3] += 1; }
+			else if($form["MAED105"] == 5) {
+				$acuObjNegocio[4] += 1; $acuProcTI[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED201"] == 1) {
+				$acuObjTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED201"] == 2) {
+				$acuObjTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED201"] == 3) {
+				$acuObjTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED201"] == 4) {
+				$acuObjTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED201"] == 5) {
+				$acuObjTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAED202"] == 1) {
+				$acuObjTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED202"] == 2) {
+				$acuObjTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED202"] == 3) {
+				$acuObjTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED202"] == 4) {
+				$acuObjTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED202"] == 5) {
+				$acuObjTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAED203"] == 1) {
+				$acuObjTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED203"] == 2) {
+				$acuObjTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED203"] == 3) {
+				$acuObjTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED203"] == 4) {
+				$acuObjTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED203"] == 5) {
+				$acuObjTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAED204"] == 1) {
+				$acuObjTI[0] += 1; $acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAED204"] == 2) {
+				$acuObjTI[1] += 1; $acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAED204"] == 3) {
+				$acuObjTI[2] += 1; $acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAED204"] == 4) {
+				$acuObjTI[3] += 1; $acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAED204"] == 5) {
+				$acuObjTI[4] += 1; $acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAED205"] == 1) {
+				$acuObjTI[0] += 1; $acuProcNegocio[0] += 1; }
+			else if($form["MAED205"] == 2) {
+				$acuObjTI[1] += 1; $acuProcNegocio[1] += 1; }
+			else if($form["MAED205"] == 3) {
+				$acuObjTI[2] += 1; $acuProcNegocio[2] += 1; }
+			else if($form["MAED205"] == 4) {
+				$acuObjTI[3] += 1; $acuProcNegocio[3] += 1; }
+			else if($form["MAED205"] == 5) {
+				$acuObjTI[4] += 1; $acuProcNegocio[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED301"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED301"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED301"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED301"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED301"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAED302"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED302"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED302"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED302"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED302"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAED303"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED303"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED303"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED303"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED303"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAED304"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED304"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED304"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED304"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED304"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAED305"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAED305"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAED305"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAED305"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAED305"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+
+
+#################################################################################
+
+			if($form["MAEC101"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEC101"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEC101"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEC101"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEC101"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEC102"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; } 
+			else if($form["MAEC102"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEC102"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEC102"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEC102"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEC103"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEC103"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEC103"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEC103"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEC103"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+
+			if($form["MAEC104"] == 1) {
+				$acuProcTI[0] += 1; $acuGesNegocio[0] += 1; $acuGesTI[0] += 1; }
+			else if($form["MAEC104"] == 2) {
+				$acuProcTI[1] += 1; $acuGesNegocio[1] += 1; $acuGesTI[1] += 1; }
+			else if($form["MAEC104"] == 3) {
+				$acuProcTI[2] += 1; $acuGesNegocio[2] += 1; $acuGesTI[2] += 1; }
+			else if($form["MAEC104"] == 4) {
+				$acuProcTI[3] += 1; $acuGesNegocio[3] += 1; $acuGesTI[3] += 1; }
+			else if($form["MAEC104"] == 5) {
+				$acuProcTI[4] += 1; $acuGesNegocio[4] += 1; $acuGesTI[4] += 1; }
+
+			if($form["MAEC105"] == 1) {
+				$acuProcTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEC105"] == 2) {
+				$acuProcTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEC105"] == 3) {
+				$acuProcTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEC105"] == 4) {
+				$acuProcTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEC105"] == 5) {
+				$acuProcTI[4] += 1; $acuObjNegocio[4] += 1; }
+
+
+
+#################################################################################
+			if($form["MAEC201"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEC201"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEC201"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEC201"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEC201"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEC202"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEC202"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEC202"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEC202"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEC202"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEC203"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEC203"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEC203"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEC203"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEC203"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+
+			if($form["MAEC204"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuGesNegocio[0] += 1; }
+			else if($form["MAEC204"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuGesNegocio[1] += 1; }
+			else if($form["MAEC204"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuGesNegocio[2] += 1; }
+			else if($form["MAEC204"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuGesNegocio[3] += 1; }
+			else if($form["MAEC204"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuGesNegocio[4] += 1; }
+
+			if($form["MAEC205"] == 1) {
+				$acuProcNegocio[0] += 1; $acuGesTI[0] += 1; $acuObjNegocio[0] += 1; }
+			else if($form["MAEC205"] == 2) {
+				$acuProcNegocio[1] += 1; $acuGesTI[1] += 1; $acuObjNegocio[1] += 1; }
+			else if($form["MAEC205"] == 3) {
+				$acuProcNegocio[2] += 1; $acuGesTI[2] += 1; $acuObjNegocio[2] += 1; }
+			else if($form["MAEC205"] == 4) {
+				$acuProcNegocio[3] += 1; $acuGesTI[3] += 1; $acuObjNegocio[3] += 1; }
+			else if($form["MAEC205"] == 5) {
+				$acuProcNegocio[4] += 1; $acuGesTI[4] += 1; $acuObjNegocio[4] += 1; }			
+		
+			}
+		}
+
+
+	$pizza = "      
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Recursos', 'Alinhamento Inexistente', 'Alinhamento Fraco', 'Alinhamento Moderado', 'Alinhamento Forte', 'Alinhamento Total'],
+          ['Objetivos de Negócios',".($acuObjNegocio[0]*100)/($cont*16).",". ($acuObjNegocio[1]*100)/($cont*16).",". ($acuObjNegocio[2]*100)/($cont*16).",".($acuObjNegocio[3]*100)/($cont*16) .",".($acuObjNegocio[4]*100)/($cont*16) ."],
+          ['Objetivos de TI',".($acuObjTI[0]*100)/($cont*15) .",".($acuObjTI[1]*100)/($cont*15) .",". ($acuObjTI[2]*100)/($cont*15).",". ($acuObjTI[3]*100)/($cont*15).",". ($acuObjTI[4]*100)/($cont*15)."],
+          ['Gestores de Negócios',".($acuGesNegocio[0]*100)/($cont*38) .",".($acuGesNegocio[1]*100)/($cont*38) .",".($acuGesNegocio[2]*100)/($cont*38) .",". ($acuGesNegocio[3]*100)/($cont*38).",". ($acuGesNegocio[4]*100)/($cont*38)."],
+          ['Gestores de TI',".($acuGesTI[0]*100)/($cont*36) .",". ($acuGesTI[1]*100)/($cont*36).",".($acuGesTI[2]*100)/($cont*36) .",". ($acuGesTI[3]*100)/($cont*36).",". ($acuGesTI[4]*100)/($cont*36)."],
+          ['Infraestrutura de Negócios',".($acuInfraNegocio[0]*100)/($cont*5) .",". ($acuInfraNegocio[1]*100)/($cont*5).",".($acuInfraNegocio[2]*100)/($cont*5) .",". ($acuInfraNegocio[3]*100)/($cont*5).",". ($acuInfraNegocio[4]*100)/($cont*5)."],
+          ['Infraestrutura de TI',".($acuInfraTI[0]*100)/($cont*5) .",". ($acuInfraTI[1]*100)/($cont*5).",".($acuInfraTI[2]*100)/($cont*5) .",". ($acuInfraTI[3]*100)/($cont*5).",". ($acuInfraTI[4]*100)/($cont*5)."],
+          ['Processos de Negócios',".($acuProcNegocio[0]*100)/($cont*20) .",". ($acuProcNegocio[1]*100)/($cont*20).",".($acuProcNegocio[2]*100)/($cont*20) .",". ($acuProcNegocio[3]*100)/($cont*20).",". ($acuProcNegocio[4]*100)/($cont*20)."],
+          ['Processos de TI',".($acuProcTI[0]*100)/($cont*31) .",". ($acuProcTI[1]*100)/($cont*31).",".($acuProcTI[2]*100)/($cont*31) .",". ($acuProcTI[3]*100)/($cont*31).",". ($acuProcTI[4]*100)/($cont*31)."]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Alinhamento por Recursos em Percentual (%)',
+            subtitle: 'Alinhamento Inexistente, Alinhamento Fraco, Alinhamento Moderado, Alinhamento Forte, Alinhamento Total',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var recurso = new google.charts.Bar(document.getElementById('recurso'));
+
+        recurso.draw(data, google.charts.Bar.convertOptions(options));
+      }
+        ";
+
+    $html_string = file_get_contents("pages/relatorio-template-recurso.html");
+    $html = str_replace('pizza1', $pizza, $html_string);
+    echo $html;
+
+
+
 #####################################################################################################
 #####################################################################################################
 #####################################################################################################
@@ -4708,6 +6355,803 @@ print ("MAEC205: ".."<br><br>");
 #####################################################################################################
 #####################################################################################################
 } else if ($empresa != null && $_GET["tipo"] == 7){
+
+	$cont = 0;
+
+	$acuP1 = array(0,0,0,0,0);
+	$acuP2 = array(0,0,0,0,0);
+
+	$acuO1 = array(0,0,0,0,0);
+	$acuO2 = array(0,0,0,0,0);
+	$acuO3 = array(0,0,0,0,0);
+	$acuO4 = array(0,0,0,0,0);
+	$acuO5 = array(0,0,0,0,0);
+
+	$acuD1 = array(0,0,0,0,0);
+	$acuD2 = array(0,0,0,0,0);
+	$acuD3 = array(0,0,0,0,0);
+
+	$acuC1 = array(0,0,0,0,0);
+	$acuC2 = array(0,0,0,0,0);
+
+	$query = "SELECT * FROM user WHERE CODE_FK=:empresa";
+ 
+	$statement = $pdo->prepare($query);
+	$statement->bindValue(":empresa",$empresa);
+	$statement->execute();
+
+	while ($user = $statement->fetch(\PDO::FETCH_ASSOC)) {
+		$query = "SELECT * FROM formulario WHERE fk_email_user=:user";
+		$smt = $pdo->prepare($query);
+		$smt->bindValue(":user",$user["email"]);
+		$smt->execute();
+		if ($form = $smt->fetch(\PDO::FETCH_ASSOC)){
+			$cont += 1;
+
+			if($form["MAEP101"] == 1) {
+				$acuP1[0] += 1; }
+			else if($form["MAEP101"] == 2) {
+				$acuP1[1] += 1; }
+			else if($form["MAEP101"] == 3) {
+				$acuP1[2] += 1; }
+			else if($form["MAEP101"] == 4) {
+				$acuP1[3] += 1; }
+			else if($form["MAEP101"] == 5) {
+				$acuP1[4] += 1; }
+
+
+			if($form["MAEP102"] == 1) {
+				$acuP1[0] += 1; }
+			else if($form["MAEP102"] == 2) {
+				$acuP1[1] += 1; }
+			else if($form["MAEP102"] == 3) {
+				$acuP1[2] += 1; }
+			else if($form["MAEP102"] == 4) {
+				$acuP1[3] += 1; }
+			else if($form["MAEP102"] == 5) {
+				$acuP1[4] += 1; }
+
+			if($form["MAEP103"] == 1) {
+				$acuP1[0] += 1; }
+			else if($form["MAEP103"] == 2) {
+				$acuP1[1] += 1; }
+			else if($form["MAEP103"] == 3) {
+				$acuP1[2] += 1; }
+			else if($form["MAEP103"] == 4) {
+				$acuP1[3] += 1; }
+			else if($form["MAEP103"] == 5) {
+				$acuP1[4] += 1; }
+
+
+			if($form["MAEP104"] == 1) {
+				$acuP1[0] += 1; }
+			else if($form["MAEP104"] == 2) {
+				$acuP1[1] += 1; }
+			else if($form["MAEP104"] == 3) {
+				$acuP1[2] += 1; }
+			else if($form["MAEP104"] == 4) {
+				$acuP1[3] += 1; }
+			else if($form["MAEP104"] == 5) {
+				$acuP1[4] += 1; }
+
+			if($form["MAEP105"] == 1) {
+				$acuP1[0] += 1; }
+			else if($form["MAEP105"] == 2) {
+				$acuP1[1] += 1; }
+			else if($form["MAEP105"] == 3) {
+				$acuP1[2] += 1; }
+			else if($form["MAEP105"] == 4) {
+				$acuP1[3] += 1; }
+			else if($form["MAEP105"] == 5) {
+				$acuP1[4] += 1; }
+
+
+#############################################################################
+
+			if($form["MAEP201"] == 1) {
+				$acuP2[0] += 1; }
+			else if($form["MAEP201"] == 2) {
+				$acuP2[1] += 1; }
+			else if($form["MAEP201"] == 3) {
+				$acuP2[2] += 1; }
+			else if($form["MAEP201"] == 4) {
+				$acuP2[3] += 1; }
+			else if($form["MAEP201"] == 5) {
+				$acuP2[4] += 1; }
+
+
+			if($form["MAEP202"] == 1) {
+				$acuP2[0] += 1; }
+			else if($form["MAEP202"] == 2) {
+				$acuP2[1] += 1; }
+			else if($form["MAEP202"] == 3) {
+				$acuP2[2] += 1; }
+			else if($form["MAEP202"] == 4) {
+				$acuP2[3] += 1; }
+			else if($form["MAEP202"] == 5) {
+				$acuP2[4] += 1; }
+
+			if($form["MAEP203"] == 1) {
+				$acuP2[0] += 1; }
+			else if($form["MAEP203"] == 2) {
+				$acuP2[1] += 1; }
+			else if($form["MAEP203"] == 3) {
+				$acuP2[2] += 1; }
+			else if($form["MAEP203"] == 4) {
+				$acuP2[3] += 1; }
+			else if($form["MAEP203"] == 5) {
+				$acuP2[4] += 1; }
+
+
+			if($form["MAEP204"] == 1) {
+				$acuP2[0] += 1; }
+			else if($form["MAEP204"] == 2) {
+				$acuP2[1] += 1; }
+			else if($form["MAEP204"] == 3) {
+				$acuP2[2] += 1; }
+			else if($form["MAEP204"] == 4) {
+				$acuP2[3] += 1; }
+			else if($form["MAEP204"] == 5) {
+				$acuP2[4] += 1; }
+
+			if($form["MAEP205"] == 1) {
+				$acuP2[0] += 1; }
+			else if($form["MAEP205"] == 2) {
+				$acuP2[1] += 1; }
+			else if($form["MAEP205"] == 3) {
+				$acuP2[2] += 1; }
+			else if($form["MAEP205"] == 4) {
+				$acuP2[3] += 1; }
+			else if($form["MAEP205"] == 5) {
+				$acuP2[4] += 1; }
+############################################################################			
+	
+			if($form["MAEO101"] == 1) {
+				$acuO1[0] += 1; }
+			else if($form["MAEO101"] == 2) {
+				$acuO1[1] += 1; }
+			else if($form["MAEO101"] == 3) {
+				$acuO1[2] += 1; }
+			else if($form["MAEO101"] == 4) {
+				$acuO1[3] += 1; }
+			else if($form["MAEO101"] == 5) {
+				$acuO1[4] += 1; }
+
+
+			if($form["MAEO102"] == 1) {
+				$acuO1[0] += 1; }
+			else if($form["MAEO102"] == 2) {
+				$acuO1[1] += 1; }
+			else if($form["MAEO102"] == 3) {
+				$acuO1[2] += 1; }
+			else if($form["MAEO102"] == 4) {
+				$acuO1[3] += 1; }
+			else if($form["MAEO102"] == 5) {
+				$acuO1[4] += 1; }
+
+			if($form["MAEO103"] == 1) {
+				$acuO1[0] += 1; }
+			else if($form["MAEO103"] == 2) {
+				$acuO1[1] += 1; }
+			else if($form["MAEO103"] == 3) {
+				$acuO1[2] += 1; }
+			else if($form["MAEO103"] == 4) {
+				$acuO1[3] += 1; }
+			else if($form["MAEO103"] == 5) {
+				$acuO1[4] += 1; }
+
+
+			if($form["MAEO104"] == 1) {
+				$acuO1[0] += 1; }
+			else if($form["MAEO104"] == 2) {
+				$acuO1[1] += 1; }
+			else if($form["MAEO104"] == 3) {
+				$acuO1[2] += 1; }
+			else if($form["MAEO104"] == 4) {
+				$acuO1[3] += 1; }
+			else if($form["MAEO104"] == 5) {
+				$acuO1[4] += 1; }
+
+			if($form["MAEO105"] == 1) {
+				$acuO1[0] += 1; }
+			else if($form["MAEO105"] == 2) {
+				$acuO1[1] += 1; }
+			else if($form["MAEO105"] == 3) {
+				$acuO1[2] += 1; }
+			else if($form["MAEO105"] == 4) {
+				$acuO1[3] += 1; }
+			else if($form["MAEO105"] == 5) {
+				$acuO1[4] += 1; }
+
+############################################################################## 
+
+			if($form["MAEO201"] == 1) {
+				$acuO2[0] += 1; }
+			else if($form["MAEO201"] == 2) {
+				$acuO2[1] += 1; }
+			else if($form["MAEO201"] == 3) {
+				$acuO2[2] += 1; }
+			else if($form["MAEO201"] == 4) {
+				$acuO2[3] += 1; }
+			else if($form["MAEO201"] == 5) {
+				$acuO2[4] += 1; }
+
+
+			if($form["MAEO202"] == 1) {
+				$acuO2[0] += 1; }
+			else if($form["MAEO202"] == 2) {
+				$acuO2[1] += 1; }
+			else if($form["MAEO202"] == 3) {
+				$acuO2[2] += 1; }
+			else if($form["MAEO202"] == 4) {
+				$acuO2[3] += 1; }
+			else if($form["MAEO202"] == 5) {
+				$acuO2[4] += 1; }
+
+			if($form["MAEO203"] == 1) {
+				$acuO2[0] += 1; }
+			else if($form["MAEO203"] == 2) {
+				$acuO2[1] += 1; }
+			else if($form["MAEO203"] == 3) {
+				$acuO2[2] += 1; }
+			else if($form["MAEO203"] == 4) {
+				$acuO2[3] += 1; }
+			else if($form["MAEO203"] == 5) {
+				$acuO2[4] += 1; }
+
+
+			if($form["MAEO204"] == 1) {
+				$acuO2[0] += 1; }
+			else if($form["MAEO204"] == 2) {
+				$acuO2[1] += 1; }
+			else if($form["MAEO204"] == 3) {
+				$acuO2[2] += 1; }
+			else if($form["MAEO204"] == 4) {
+				$acuO2[3] += 1; }
+			else if($form["MAEO204"] == 5) {
+				$acuO2[4] += 1; }
+
+			if($form["MAEO205"] == 1) {
+				$acuO2[0] += 1; }
+			else if($form["MAEO205"] == 2) {
+				$acuO2[1] += 1; }
+			else if($form["MAEO205"] == 3) {
+				$acuO2[2] += 1; }
+			else if($form["MAEO205"] == 4) {
+				$acuO2[3] += 1; }
+			else if($form["MAEO205"] == 5) {
+				$acuO2[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAEO301"] == 1) {
+				$acuO3[0] += 1; }
+			else if($form["MAEO301"] == 2) {
+				$acuO3[1] += 1; }
+			else if($form["MAEO301"] == 3) {
+				$acuO3[2] += 1; }
+			else if($form["MAEO301"] == 4) {
+				$acuO3[3] += 1; }
+			else if($form["MAEO301"] == 5) {
+				$acuO3[4] += 1; }
+
+
+			if($form["MAEO302"] == 1) {
+				$acuO3[0] += 1; }
+			else if($form["MAEO302"] == 2) {
+				$acuO3[1] += 1; }
+			else if($form["MAEO302"] == 3) {
+				$acuO3[2] += 1; }
+			else if($form["MAEO302"] == 4) {
+				$acuO3[3] += 1; }
+			else if($form["MAEO302"] == 5) {
+				$acuO3[4] += 1; }
+
+			if($form["MAEO303"] == 1) {
+				$acuO3[0] += 1; }
+			else if($form["MAEO303"] == 2) {
+				$acuO3[1] += 1; }
+			else if($form["MAEO303"] == 3) {
+				$acuO3[2] += 1; }
+			else if($form["MAEO303"] == 4) {
+				$acuO3[3] += 1; }
+			else if($form["MAEO303"] == 5) {
+				$acuO3[4] += 1; }
+
+
+			if($form["MAEO304"] == 1) {
+				$acuO3[0] += 1; }
+			else if($form["MAEO304"] == 2) {
+				$acuO3[1] += 1; }
+			else if($form["MAEO304"] == 3) {
+				$acuO3[2] += 1; }
+			else if($form["MAEO304"] == 4) {
+				$acuO3[3] += 1; }
+			else if($form["MAEO304"] == 5) {
+				$acuO3[4] += 1; }
+
+			if($form["MAEO305"] == 1) {
+				$acuO3[0] += 1; }
+			else if($form["MAEO305"] == 2) {
+				$acuO3[1] += 1; }
+			else if($form["MAEO305"] == 3) {
+				$acuO3[2] += 1; }
+			else if($form["MAEO305"] == 4) {
+				$acuO3[3] += 1; }
+			else if($form["MAEO305"] == 5) {
+				$acuO3[4] += 1; }
+
+
+
+#################################################################################
+
+			if($form["MAEO401"] == 1) {
+				$acuO4[0] += 1; }
+			else if($form["MAEO401"] == 2) {
+				$acuO4[1] += 1; }
+			else if($form["MAEO401"] == 3) {
+				$acuO4[2] += 1; }
+			else if($form["MAEO401"] == 4) {
+				$acuO4[3] += 1; }
+			else if($form["MAEO401"] == 5) {
+				$acuO4[4] += 1; }
+
+
+			if($form["MAEO402"] == 1) {
+				$acuO4[0] += 1; }
+			else if($form["MAEO402"] == 2) {
+				$acuO4[1] += 1; }
+			else if($form["MAEO402"] == 3) {
+				$acuO4[2] += 1; }
+			else if($form["MAEO402"] == 4) {
+				$acuO4[3] += 1; }
+			else if($form["MAEO402"] == 5) {
+				$acuO4[4] += 1; }
+
+			if($form["MAEO403"] == 1) {
+				$acuO4[0] += 1; }
+			else if($form["MAEO403"] == 2) {
+				$acuO4[1] += 1; }
+			else if($form["MAEO403"] == 3) {
+				$acuO4[2] += 1; }
+			else if($form["MAEO403"] == 4) {
+				$acuO4[3] += 1; }
+			else if($form["MAEO403"] == 5) {
+				$acuO4[4] += 1; }
+
+
+			if($form["MAEO404"] == 1) {
+				$acuO4[0] += 1; }
+			else if($form["MAEO404"] == 2) {
+				$acuO4[1] += 1; }
+			else if($form["MAEO404"] == 3) {
+				$acuO4[2] += 1; }
+			else if($form["MAEO404"] == 4) {
+				$acuO4[3] += 1; }
+			else if($form["MAEO404"] == 5) {
+				$acuO4[4] += 1; }
+
+			if($form["MAEO405"] == 1) {
+				$acuO4[0] += 1; }
+			else if($form["MAEO405"] == 2) {
+				$acuO4[1] += 1; }
+			else if($form["MAEO405"] == 3) {
+				$acuO4[2] += 1; }
+			else if($form["MAEO405"] == 4) {
+				$acuO4[3] += 1; }
+			else if($form["MAEO405"] == 5) {
+				$acuO4[4] += 1; }
+
+
+
+
+#################################################################################
+
+			if($form["MAEO501"] == 1) {
+				$acuO5[0] += 1; }
+			else if($form["MAEO501"] == 2) {
+				$acuO5[1] += 1; }
+			else if($form["MAEO501"] == 3) {
+				$acuO5[2] += 1; }
+			else if($form["MAEO501"] == 4) {
+				$acuO5[3] += 1; }
+			else if($form["MAEO501"] == 5) {
+				$acuO5[4] += 1; }
+
+
+			if($form["MAEO502"] == 1) {
+				$acuO5[0] += 1; }
+			else if($form["MAEO502"] == 2) {
+				$acuO5[1] += 1; }
+			else if($form["MAEO502"] == 3) {
+				$acuO5[2] += 1; }
+			else if($form["MAEO502"] == 4) {
+				$acuO5[3] += 1; }
+			else if($form["MAEO502"] == 5) {
+				$acuO5[4] += 1; }
+
+			if($form["MAEO503"] == 1) {
+				$acuO5[0] += 1; }
+			else if($form["MAEO503"] == 2) {
+				$acuO5[1] += 1; }
+			else if($form["MAEO503"] == 3) {
+				$acuO5[2] += 1; }
+			else if($form["MAEO503"] == 4) {
+				$acuO5[3] += 1; }
+			else if($form["MAEO503"] == 5) {
+				$acuO5[4] += 1; }
+
+
+			if($form["MAEO504"] == 1) {
+				$acuO5[0] += 1; }
+			else if($form["MAEO504"] == 2) {
+				$acuO5[1] += 1; }
+			else if($form["MAEO504"] == 3) {
+				$acuO5[2] += 1; }
+			else if($form["MAEO504"] == 4) {
+				$acuO5[3] += 1; }
+			else if($form["MAEO504"] == 5) {
+				$acuO5[4] += 1; }
+
+			if($form["MAEO505"] == 1) {
+				$acuO5[0] += 1; }
+			else if($form["MAEO505"] == 2) {
+				$acuO5[1] += 1; }
+			else if($form["MAEO505"] == 3) {
+				$acuO5[2] += 1; }
+			else if($form["MAEO505"] == 4) {
+				$acuO5[3] += 1; }
+			else if($form["MAEO505"] == 5) {
+				$acuO5[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED101"] == 1) {
+				$acuD1[0] += 1; }
+			else if($form["MAED101"] == 2) {
+				$acuD1[1] += 1; }
+			else if($form["MAED101"] == 3) {
+				$acuD1[2] += 1; }
+			else if($form["MAED101"] == 4) {
+				$acuD1[3] += 1; }
+			else if($form["MAED101"] == 5) {
+				$acuD1[4] += 1; }
+
+
+			if($form["MAED102"] == 1) {
+				$acuD1[0] += 1; }
+			else if($form["MAED102"] == 2) {
+				$acuD1[1] += 1; }
+			else if($form["MAED102"] == 3) {
+				$acuD1[2] += 1; }
+			else if($form["MAED102"] == 4) {
+				$acuD1[3] += 1; }
+			else if($form["MAED102"] == 5) {
+				$acuD1[4] += 1; }
+
+			if($form["MAED103"] == 1) {
+				$acuD1[0] += 1; }
+			else if($form["MAED103"] == 2) {
+				$acuD1[1] += 1; }
+			else if($form["MAED103"] == 3) {
+				$acuD1[2] += 1; }
+			else if($form["MAED103"] == 4) {
+				$acuD1[3] += 1; }
+			else if($form["MAED103"] == 5) {
+				$acuD1[4] += 1; }
+
+
+			if($form["MAED104"] == 1) {
+				$acuD1[0] += 1; }
+			else if($form["MAED104"] == 2) {
+				$acuD1[1] += 1; }
+			else if($form["MAED104"] == 3) {
+				$acuD1[2] += 1; }
+			else if($form["MAED104"] == 4) {
+				$acuD1[3] += 1; }
+			else if($form["MAED104"] == 5) {
+				$acuD1[4] += 1; }
+
+			if($form["MAED105"] == 1) {
+				$acuD1[0] += 1; }
+			else if($form["MAED105"] == 2) {
+				$acuD1[1] += 1; }
+			else if($form["MAED105"] == 3) {
+				$acuD1[2] += 1; }
+			else if($form["MAED105"] == 4) {
+				$acuD1[3] += 1; }
+			else if($form["MAED105"] == 5) {
+				$acuD1[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED201"] == 1) {
+				$acuD2[0] += 1; }
+			else if($form["MAED201"] == 2) {
+				$acuD2[1] += 1; }
+			else if($form["MAED201"] == 3) {
+				$acuD2[2] += 1; }
+			else if($form["MAED201"] == 4) {
+				$acuD2[3] += 1; }
+			else if($form["MAED201"] == 5) {
+				$acuD2[4] += 1; }
+
+
+			if($form["MAED202"] == 1) {
+				$acuD2[0] += 1; }
+			else if($form["MAED202"] == 2) {
+				$acuD2[1] += 1; }
+			else if($form["MAED202"] == 3) {
+				$acuD2[2] += 1; }
+			else if($form["MAED202"] == 4) {
+				$acuD2[3] += 1; }
+			else if($form["MAED202"] == 5) {
+				$acuD2[4] += 1; }
+
+			if($form["MAED203"] == 1) {
+				$acuD2[0] += 1; }
+			else if($form["MAED203"] == 2) {
+				$acuD2[1] += 1; }
+			else if($form["MAED203"] == 3) {
+				$acuD2[2] += 1; }
+			else if($form["MAED203"] == 4) {
+				$acuD2[3] += 1; }
+			else if($form["MAED203"] == 5) {
+				$acuD2[4] += 1; }
+
+
+			if($form["MAED204"] == 1) {
+				$acuD2[0] += 1; }
+			else if($form["MAED204"] == 2) {
+				$acuD2[1] += 1; }
+			else if($form["MAED204"] == 3) {
+				$acuD2[2] += 1; }
+			else if($form["MAED204"] == 4) {
+				$acuD2[3] += 1; }
+			else if($form["MAED204"] == 5) {
+				$acuD2[4] += 1; }
+
+			if($form["MAED205"] == 1) {
+				$acuD2[0] += 1; }
+			else if($form["MAED205"] == 2) {
+				$acuD2[1] += 1; }
+			else if($form["MAED205"] == 3) {
+				$acuD2[2] += 1; }
+			else if($form["MAED205"] == 4) {
+				$acuD2[3] += 1; }
+			else if($form["MAED205"] == 5) {
+				$acuD2[4] += 1; }
+
+
+
+################################################################################
+
+			if($form["MAED301"] == 1) {
+				$acuD3[0] += 1; }
+			else if($form["MAED301"] == 2) {
+				$acuD3[1] += 1; }
+			else if($form["MAED301"] == 3) {
+				$acuD3[2] += 1; }
+			else if($form["MAED301"] == 4) {
+				$acuD3[3] += 1; }
+			else if($form["MAED301"] == 5) {
+				$acuD3[4] += 1; }
+
+
+			if($form["MAED302"] == 1) {
+				$acuD3[0] += 1; }
+			else if($form["MAED302"] == 2) {
+				$acuD3[1] += 1; }
+			else if($form["MAED302"] == 3) {
+				$acuD3[2] += 1; }
+			else if($form["MAED302"] == 4) {
+				$acuD3[3] += 1; }
+			else if($form["MAED302"] == 5) {
+				$acuD3[4] += 1; }
+
+			if($form["MAED303"] == 1) {
+				$acuD3[0] += 1; }
+			else if($form["MAED303"] == 2) {
+				$acuD3[1] += 1; }
+			else if($form["MAED303"] == 3) {
+				$acuD3[2] += 1; }
+			else if($form["MAED303"] == 4) {
+				$acuD3[3] += 1; }
+			else if($form["MAED303"] == 5) {
+				$acuD3[4] += 1; }
+
+
+			if($form["MAED304"] == 1) {
+				$acuD3[0] += 1; }
+			else if($form["MAED304"] == 2) {
+				$acuD3[1] += 1; }
+			else if($form["MAED304"] == 3) {
+				$acuD3[2] += 1; }
+			else if($form["MAED304"] == 4) {
+				$acuD3[3] += 1; }
+			else if($form["MAED304"] == 5) {
+				$acuD3[4] += 1; }
+
+			if($form["MAED305"] == 1) {
+				$acuD3[0] += 1; }
+			else if($form["MAED305"] == 2) {
+				$acuD3[1] += 1; }
+			else if($form["MAED305"] == 3) {
+				$acuD3[2] += 1; }
+			else if($form["MAED305"] == 4) {
+				$acuD3[3] += 1; }
+			else if($form["MAED305"] == 5) {
+				$acuD3[4] += 1; }
+
+
+
+
+#################################################################################
+
+			if($form["MAEC101"] == 1) {
+				$acuC1[0] += 1; }
+			else if($form["MAEC101"] == 2) {
+				$acuC1[1] += 1; }
+			else if($form["MAEC101"] == 3) {
+				$acuC1[2] += 1; }
+			else if($form["MAEC101"] == 4) {
+				$acuC1[3] += 1; }
+			else if($form["MAEC101"] == 5) {
+				$acuC1[4] += 1; }
+
+
+			if($form["MAEC102"] == 1) {
+				$acuC1[0] += 1; } 
+			else if($form["MAEC102"] == 2) {
+				$acuC1[1] += 1; }
+			else if($form["MAEC102"] == 3) {
+				$acuC1[2] += 1; }
+			else if($form["MAEC102"] == 4) {
+				$acuC1[3] += 1; }
+			else if($form["MAEC102"] == 5) {
+				$acuC1[4] += 1; }
+
+			if($form["MAEC103"] == 1) {
+				$acuC1[0] += 1; }
+			else if($form["MAEC103"] == 2) {
+				$acuC1[1] += 1; }
+			else if($form["MAEC103"] == 3) {
+				$acuC1[2] += 1; }
+			else if($form["MAEC103"] == 4) {
+				$acuC1[3] += 1; }
+			else if($form["MAEC103"] == 5) {
+				$acuC1[4] += 1; }
+
+
+			if($form["MAEC104"] == 1) {
+				$acuC1[0] += 1; }
+			else if($form["MAEC104"] == 2) {
+				$acuC1[1] += 1; }
+			else if($form["MAEC104"] == 3) {
+				$acuC1[2] += 1; }
+			else if($form["MAEC104"] == 4) {
+				$acuC1[3] += 1; }
+			else if($form["MAEC104"] == 5) {
+				$acuC1[4] += 1; }
+
+			if($form["MAEC105"] == 1) {
+				$acuC1[0] += 1; }
+			else if($form["MAEC105"] == 2) {
+				$acuC1[1] += 1; }
+			else if($form["MAEC105"] == 3) {
+				$acuC1[2] += 1; }
+			else if($form["MAEC105"] == 4) {
+				$acuC1[3] += 1; }
+			else if($form["MAEC105"] == 5) {
+				$acuC1[4] += 1; }
+
+
+
+#################################################################################
+			if($form["MAEC201"] == 1) {
+				$acuC2[0] += 1; }
+			else if($form["MAEC201"] == 2) {
+				$acuC2[1] += 1; }
+			else if($form["MAEC201"] == 3) {
+				$acuC2[2] += 1; }
+			else if($form["MAEC201"] == 4) {
+				$acuC2[3] += 1; }
+			else if($form["MAEC201"] == 5) {
+				$acuC2[4] += 1; }
+
+
+			if($form["MAEC202"] == 1) {
+				$acuC2[0] += 1; }
+			else if($form["MAEC202"] == 2) {
+				$acuC2[1] += 1; }
+			else if($form["MAEC202"] == 3) {
+				$acuC2[2] += 1; }
+			else if($form["MAEC202"] == 4) {
+				$acuC2[3] += 1; }
+			else if($form["MAEC202"] == 5) {
+				$acuC2[4] += 1; }
+
+			if($form["MAEC203"] == 1) {
+				$acuC2[0] += 1; }
+			else if($form["MAEC203"] == 2) {
+				$acuC2[1] += 1; }
+			else if($form["MAEC203"] == 3) {
+				$acuC2[2] += 1; }
+			else if($form["MAEC203"] == 4) {
+				$acuC2[3] += 1; }
+			else if($form["MAEC203"] == 5) {
+				$acuC2[4] += 1; }
+
+
+			if($form["MAEC204"] == 1) {
+				$acuC2[0] += 1; }
+			else if($form["MAEC204"] == 2) {
+				$acuC2[1] += 1; }
+			else if($form["MAEC204"] == 3) {
+				$acuC2[2] += 1; }
+			else if($form["MAEC204"] == 4) {
+				$acuC2[3] += 1; }
+			else if($form["MAEC204"] == 5) {
+				$acuC2[4] += 1; }
+
+			if($form["MAEC205"] == 1) {
+				$acuC2[0] += 1; }
+			else if($form["MAEC205"] == 2) {
+				$acuC2[1] += 1; }
+			else if($form["MAEC205"] == 3) {
+				$acuC2[2] += 1; }
+			else if($form["MAEC205"] == 4) {
+				$acuC2[3] += 1; }
+			else if($form["MAEC205"] == 5) {
+				$acuC2[4] += 1; }			
+		}
+	}
+
+	$pizza = "      
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dimensões', 'Alinhamento Inexistente', 'Alinhamento Fraco', 'Alinhamento Moderado', 'Alinhamento Forte', 'Alinhamento Total'],
+          ['Planejamento 1',".($acuP1[0]*100)/($cont*5).",". ($acuP1[1]*100)/($cont*5).",". ($acuP1[2]*100)/($cont*5).",".($acuP1[3]*100)/($cont*5) .",".($acuP1[4]*100)/($cont*5) ."],
+          ['Planejamento 2',".($acuP2[0]*100)/($cont*5) .",".($acuP2[1]*100)/($cont*5) .",". ($acuP2[2]*100)/($cont*5).",". ($acuP2[3]*100)/($cont*5).",". ($acuP2[4]*100)/($cont*5)."],
+          ['Organização 1',".($acuO1[0]*100)/($cont*5) .",".($acuO1[1]*100)/($cont*5) .",".($acuO1[2]*100)/($cont*5) .",". ($acuO1[3]*100)/($cont*5).",". ($acuO1[4]*100)/($cont*5)."],
+          ['Organização 2',".($acuO2[0]*100)/($cont*5) .",".($acuO2[1]*100)/($cont*5) .",".($acuO2[2]*100)/($cont*5) .",". ($acuO2[3]*100)/($cont*5).",". ($acuO2[4]*100)/($cont*5)."],
+          ['Organização 3',".($acuO3[0]*100)/($cont*5) .",".($acuO3[1]*100)/($cont*5) .",".($acuO3[2]*100)/($cont*5) .",". ($acuO3[3]*100)/($cont*5).",". ($acuO3[4]*100)/($cont*5)."],
+          ['Organização 4',".($acuO4[0]*100)/($cont*5) .",".($acuO4[1]*100)/($cont*5) .",".($acuO4[2]*100)/($cont*5) .",". ($acuO4[3]*100)/($cont*5).",". ($acuO4[4]*100)/($cont*5)."],
+          ['Organização 5',".($acuO5[0]*100)/($cont*5) .",".($acuO5[1]*100)/($cont*5) .",".($acuO5[2]*100)/($cont*5) .",". ($acuO5[3]*100)/($cont*5).",". ($acuO5[4]*100)/($cont*5)."],                                       
+          ['Direção 1',".($acuD1[0]*100)/($cont*5) .",". ($acuD1[1]*100)/($cont*5).",".($acuD1[2]*100)/($cont*5) .",". ($acuD1[3]*100)/($cont*5).",". ($acuD1[4]*100)/($cont*5)."],
+          ['Direção 2',".($acuD2[0]*100)/($cont*5) .",". ($acuD2[1]*100)/($cont*5).",".($acuD2[2]*100)/($cont*5) .",". ($acuD2[3]*100)/($cont*5).",". ($acuD2[4]*100)/($cont*5)."],
+          ['Direção 3',".($acuD3[0]*100)/($cont*5) .",". ($acuD3[1]*100)/($cont*5).",".($acuD3[2]*100)/($cont*5) .",". ($acuD3[3]*100)/($cont*5).",". ($acuD3[4]*100)/($cont*5)."],                    
+          ['Controle 1',".($acuC1[0]*100)/($cont*5) .",". ($acuC1[1]*100)/($cont*5).",".($acuC1[2]*100)/($cont*5) .",". ($acuC1[3]*100)/($cont*5).",". ($acuC1[4]*100)/($cont*5)."],
+          ['Controle 2',".($acuC2[0]*100)/($cont*5) .",". ($acuC2[1]*100)/($cont*5).",".($acuC2[2]*100)/($cont*5) .",". ($acuC2[3]*100)/($cont*5).",". ($acuC2[4]*100)/($cont*5)."]          
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Alinhamento por Diretrizes em Percentual (%)',
+            subtitle: 'Alinhamento Inexistente, Alinhamento Fraco, Alinhamento Moderado, Alinhamento Forte, Alinhamento Total',
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var diretriz = new google.charts.Bar(document.getElementById('diretriz'));
+
+        diretriz.draw(data, google.charts.Bar.convertOptions(options));
+      }
+        ";
+
+    $html_string = file_get_contents("pages/relatorio-template-diretriz.html");
+    $html = str_replace('pizza1', $pizza, $html_string);
+    echo $html;
+
 
 #####################################################################################################
 #####################################################################################################
@@ -5528,9 +7972,9 @@ print ("MAEC205: ".."<br><br>");
 #####################################################################################################
 #####################################################################################################
 #####################################################################################################
-}
-
-
+	}
+}else {
+    header("location:login.php");
 }
 
 ?>
