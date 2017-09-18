@@ -35,8 +35,11 @@
 <body> 
     <div class="container">
         <div class="row">
+            <div class="col-md-9 col-md-offset-2" style="margin-top: 10%;">
+                <h2>SARMATINe - Sistema de Avaliação e Recomendação de Melhorias para o Alinhamento Estratégico entre TI e Negócios</h2>
+            </div>
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
+                <div class="login-panel panel panel-default" style="margin-top: 5%;">
                     <div class="panel-heading">
                         <h3 class="panel-title"><b>Faça seu login</b></h3>
                     </div>
@@ -53,7 +56,6 @@
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                                 <a href="usuario.php" class="btn btn-lg btn-info btn-block">Criar uma Conta</a>
-                                <a href="empresa.php" class="btn btn-lg btn-warning btn-block">Cadastrar uma Empresa</a>
                             </fieldset>
                         </form>
                     </div>

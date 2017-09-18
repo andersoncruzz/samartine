@@ -7,9 +7,8 @@ session_start();
 if ( $_SESSION["email"] != null
     && $_SESSION["username"]!= null) {
     //echo $_SESSION["username"];
-    $html_string = file_get_contents("pages/blank.html");
-    $html = str_replace('Menu - Samartine', 'Sua resposta foi salva com sucesso!', $html_string);
-    echo $html;
+    $html_string = file_get_contents("pages/sucesso.html");
+    echo $html_string;
 } else {
     header("location:login.php");
 }
