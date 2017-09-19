@@ -35,11 +35,14 @@
 <body> 
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2" style="margin-top: 10%;">
-                <h2>SARMATINe - Sistema de Avaliação e Recomendação de Melhorias para o Alinhamento Estratégico entre TI e Negócios</h2>
+            <div class="col-md-9 col-md-offset-2" style="margin-top: 10%; text-align: center;">
+                <h2><b>SARMATINe</b></h2>
+            </div>
+            <div class="col-md-9 col-md-offset-2" style="text-align: center;">
+                <h2><b>Sistema de Avaliação e Recomendação de Melhorias para o Alinhamento Estratégico entre TI e Negócios</b></h2>
             </div>
             <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default" style="margin-top: 5%;">
+                <div class="login-panel panel panel-default" style="margin-top: 5%; margin-left: 10%; text-align: center;">
                     <div class="panel-heading">
                         <h3 class="panel-title"><b>Faça seu login</b></h3>
                     </div>
