@@ -162,7 +162,7 @@ $statement->bindValue(":MAEC205", $MAEC205);
 
 
 if ($statement->execute()) {
-	header("location:home-sucesso.php");
+	header("location:feedback.php");
 } else {
 	header("location:home-falha.php");
 }
