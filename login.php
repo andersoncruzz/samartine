@@ -50,7 +50,7 @@
                         <form role="form" method="POST" action="login-processa.php">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Login" name="email" type="" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
@@ -58,7 +58,6 @@
                                 
                                 <!-- Change this to a button or input when using this as a form -->
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
-                                <a href="usuario.php" class="btn btn-lg btn-info btn-block">Criar uma Conta</a>
                             </fieldset>
                         </form>
                     </div>

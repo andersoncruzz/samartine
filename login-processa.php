@@ -21,11 +21,23 @@ $user = $statement->fetch(\PDO::FETCH_ASSOC);
 if ($user) {
 	session_start();
 	$_SESSION["email"] = $user["email"];
-	$_SESSION["username"] = $user["nome"];
+	$_SESSION["username"] = $user["email"];
 	$_SESSION["empresa"] = $user["code_fk"];
-	//$_SESSION['expire'] = $_SESSION['start'] + (24 * 60 * 60);
-	header("location:home.php");
-	//echo $_SESSION["email"] . " user " . $_SESSION["username"] . " ". var_dump($_SESSION);
+	
+	//header("location:home.php");
+	$query = "SELECT * FROM participante WHERE EMAIL=:email";
+ 
+	$statement = $pdo->prepare($query);
+	$statement->bindValue(":email", $_SESSION["email"]);
+	$statement->execute();
+
+
+	if ($participante = $statement->fetch(\PDO::FETCH_ASSOC)) {    
+		header("location:home.php");
+    } else {
+    	header("location:usuario.php");
+    }
+	
 } else {
 	header("location:login.php");
 }

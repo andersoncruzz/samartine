@@ -1,19 +1,15 @@
 <?php
 include("database.php");
 
-$pdo = new PDO($database_conexao, $database_username, $database_senha);
+session_start();
 
-$query = "SELECT * FROM empresa ORDER BY nome ASC";
-$statement = $pdo->prepare($query);
-$statement->execute();
-$option = "";
-while ($empresa = $statement->fetch(\PDO::FETCH_ASSOC)) {
-	$option = $option."\n"."<option>".$empresa["nome"]."</option>";
+if ( $_SESSION["email"] != null
+    && $_SESSION["username"]!= null) {
+
+	$html_string = file_get_contents("pages/criar-usuario.html");
+	echo $html_string;
+
+} else {
+	header("location:login.php");
 }
-
-$html_string = file_get_contents("pages/criar-usuario.html");
-$html = str_replace("<option>1</option>", $option, $html_string);
-
-echo $html;
-
 ?>
