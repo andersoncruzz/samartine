@@ -19,10 +19,10 @@ if ( $_SESSION["email"] != null
 	$q6 = $_POST["q6"];
 	$comentarioQ6 = $_POST["comentarioQ6"];
 	$q7 = $_POST["q7"];
-	$comentarioQ7 = $_POST["comentarioQ7"];
 	$q8 = $_POST["q8"];
 	$q9 = $_POST["q9"];
 	$q10 = $_POST["q10"];
+	$q11 = $_POST["q11"];
 	//$email = $_POST["email"];
 	$email = $_SESSION["email"];
 
@@ -30,7 +30,7 @@ if ( $_SESSION["email"] != null
 
 	//echo var_dump($empresaux);
 
-	$query = "INSERT INTO feedback (q1, comentarioQ1, q2, comentarioQ2, q3, comentarioQ3, q4, comentarioQ4, q5, comentarioQ5, q6, comentarioQ6, q7, comentarioQ7, q8, q9, q10, fk_email) VALUES (:q1, :comentarioQ1, :q2, :comentarioQ2, :q3, :comentarioQ3, :q4, :comentarioQ4, :q5, :comentarioQ5, :q6, :comentarioQ6, :q7, :comentarioQ7, :q8, :q9, :q10, :fk_email);";
+	$query = "INSERT INTO feedback (q1, comentarioQ1, q2, comentarioQ2, q3, comentarioQ3, q4, comentarioQ4, q5, comentarioQ5, q6, comentarioQ6, q7, q8, q9, q10, q11, fk_email) VALUES (:q1, :comentarioQ1, :q2, :comentarioQ2, :q3, :comentarioQ3, :q4, :comentarioQ4, :q5, :comentarioQ5, :q6, :comentarioQ6, :q7, :q8, :q9, :q10, :q11, :fk_email);";
 				
 	$statement = $pdo->prepare($query);
 	$statement->bindValue(":q1",$q1);
@@ -46,10 +46,10 @@ if ( $_SESSION["email"] != null
 	$statement->bindValue(":q6",$q6);
 	$statement->bindValue(":comentarioQ6",$comentarioQ6);
 	$statement->bindValue(":q7",$q7);
-	$statement->bindValue(":comentarioQ7",$comentarioQ7);
 	$statement->bindValue(":q8",$q8);
 	$statement->bindValue(":q9",$q9);
 	$statement->bindValue(":q10",$q10);
+	$statement->bindValue(":q11",$q11);
 	$statement->bindValue(":fk_email",$email);
 	//echo var_dump($_POST);
 

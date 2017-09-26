@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SARMATINe </a>
+                <a class="navbar-brand" href="">SAMARTINe - Sistema de Avaliação e Recomendação de Melhorias para o Alinhamento Estratégico entre TI e Negócios  </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -84,14 +84,11 @@
         <div id="page-wrapper" style="margin-left: 80px;">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><b>Análise da Eficácia do Questionário</b></h3>
+                    <h3 class="page-header"><b>3 - Análise do Questionário e da Abordagem Utilizada na Avaliação</b></h3>
                 </div>
                 <!-- /.col-lg-12 -->
                  <div class="col-lg-12">
                     <!--<h4><b>Como proceder:</b></h4> <h5> Preencha os espaços em branco com suas informações pessoais. </h5> -->
-                    <h3><b>A sua resposta foi salva!</b></h3>
-                    <h4><b>Para finalizar avalie o questionário.</b></h4>
-                    <br>
                     <h5>(*) Campos Obrigatórios.</h5>
                 </div> 
                 <!-- /.col-lg-12 -->
@@ -194,7 +191,7 @@
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*As afirmações foram suficientemente claras e coerentes, facilitando o seu entendimento?</label>
+                                            <label>*Você acha que as metas avaliadas podem dar uma ideia de como a ocorre o alinhamento estratégico em uma organização?</label>
                                              <div class="radio">
                                                 <label>
                                                     <input type="radio" name="q5" id="q5" value="1" required>Sim
@@ -211,21 +208,30 @@
                                         </div>
                                 </div>
 
+
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*Você acha que as metas avaliadas podem dar uma ideia de como a ocorre o alinhamento estratégico em uma organização?</label>
+                                            <label>*Você achou coerente as etapas ou o método utilizado com o objetivo de avaliar o alinhamento estratégico entre TI e negócios nas organizações.</label>
                                              <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="q6" id="q6" value="1" required>Sim
+                                                    <input type="radio" name="q6" id="q6" value="1" required>Sem coerência
                                                 </label> </br>
                                                 <label>
-                                                    <input type="radio" name="q6" id="q6" value="2" >Não
+                                                    <input type="radio" name="q6" id="q6" value="2" >Pouco coerente
                                                 </label> </br>
                                                 <label>
-                                                    <input type="radio" name="q6" id="q6" value="3" >Sem Opinião
+                                                    <input type="radio" name="q6" id="q6" value="3" >Coerente
                                                 </label> </br>
-
+                                                <label>
+                                                    <input type="radio" name="q6" id="q6" value="4" >Muito coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q6" id="q6" value="5" >Totalmente coerente
+                                                </label> </br>                                                
+                                                <label>
+                                                    <input type="radio" name="q6" id="q6" value="6" >Sem opinião
+                                                </label> </br>
                                             </div>
                                             <input class="form-control" placeholder="Comentário" name="comentarioQ6" type="" value="">                          
                                         </div>
@@ -234,20 +240,27 @@
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*Você acha viável utilizar esse modelo de questionário para avaliar o alinhamento estratégico de uma organização?</label>
+                                            <label>*As metas de alinhamento estratégico avaliadas tem valor para a sua organização? Elas são importantes e necessárias? Elas exercem alguma influência na sua organização?</label>
                                              <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="q7" id="q7" value="1" required>Sim
+                                                    <input type="radio" name="q7" id="q7" value="1" required>Sem coerência
                                                 </label> </br>
                                                 <label>
-                                                    <input type="radio" name="q7" id="q7" value="2" >Não
+                                                    <input type="radio" name="q7" id="q7" value="2" >Pouco coerente
                                                 </label> </br>
                                                 <label>
-                                                    <input type="radio" name="q7" id="q7" value="3" >Sem Opinião
+                                                    <input type="radio" name="q7" id="q7" value="3" >Coerente
                                                 </label> </br>
-
-                                            </div>
-                                            <input class="form-control" placeholder="Comentário" name="comentarioQ7" type="" value="">                          
+                                                <label>
+                                                    <input type="radio" name="q7" id="q7" value="4" >Muito coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q7" id="q7" value="5" >Totalmente coerente
+                                                </label> </br>                                                
+                                                <label>
+                                                    <input type="radio" name="q7" id="q7" value="6" >Sem opinião
+                                                </label> </br>
+                                            </div>                          
                                         </div>
                                 </div>
 
@@ -255,16 +268,56 @@
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*Você teria outra afirmação sobre Valores Organizacionais para sugerir?</label>
-                                            <textarea class="form-control" placeholder="Comentário" name="q8" value="" rows="5" cols="50" required></textarea>                          
+                                            <label>*A sua organização é capaz de atingir as metas de alinhamento estratégico avaliadas?</label>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="1" required>Sem coerência
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="2" >Pouco coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="3" >Coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="4" >Muito coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="5" >Totalmente coerente
+                                                </label> </br>                                                
+                                                <label>
+                                                    <input type="radio" name="q8" id="q8" value="6" >Sem opinião
+                                                </label> </br>
+                                            </div>                          
                                         </div>
                                 </div>
+
+
 
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*Você tem alguma sugestão para melhorar o questionário ou as afirmações?</label>
-                                            <textarea class="form-control" placeholder="Comentário" name="q9" value="" rows="5" cols="50" required></textarea>                          
+                                            <label>*As metas de alinhamento estratégico avaliadas são coerentes e possuem lógica no contexto organizacional? Elas estão em harmonia com o objetivo de avaliar o alinhamento estratégico entre a TI e os negócios na sua organização?</label>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="1" required>Sem coerência
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="2" >Pouco coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="3" >Coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="4" >Muito coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="5" >Totalmente coerente
+                                                </label> </br>                                                
+                                                <label>
+                                                    <input type="radio" name="q9" id="q9" value="6" >Sem opinião
+                                                </label> </br>
+                                            </div>                          
                                         </div>
                                 </div>
 
@@ -272,8 +325,36 @@
                                  <div class="col-lg-12">                      
                                         <div class="form-group">
                                             <br>
-                                            <label>*Comentários Adicionais.</label>
-                                            <textarea class="form-control" placeholder="Comentário" name="q10" value="" rows="5" cols="50" required></textarea>                          
+                                            <label>*As metas de alinhamento estratégico avaliadas são confiáveis? As organizações podem ter confiança em buscar o alcance das metas de alinhamento avaliadas?</label>
+                                             <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="1" required>Sem coerência
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="2" >Pouco coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="3" >Coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="4" >Muito coerente
+                                                </label> </br>
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="5" >Totalmente coerente
+                                                </label> </br>                                                
+                                                <label>
+                                                    <input type="radio" name="q10" id="q10" value="6" >Sem opinião
+                                                </label> </br>
+                                            </div>                          
+                                        </div>
+                                </div>
+
+
+                                 <div class="col-lg-12">                      
+                                        <div class="form-group">
+                                            <br>
+                                            <label>Você tem alguma sugestão para melhorar o questionário ou as metas de alinhamento estratégico?</label>
+                                            <textarea class="form-control" placeholder="Comentário" name="q11" value="" rows="5" cols="50"></textarea>                          
                                         </div>
                                 </div>
 

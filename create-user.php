@@ -6,7 +6,7 @@ session_start();
 if ( $_SESSION["email"] != null
     && $_SESSION["username"]!= null) {
 
-	$nome = $_POST["nome"];
+	//$nome = $_POST["nome"];
 	$email = $_SESSION["email"];
 	$genero = $_POST["genero"];
 	$nivel_academico = $_POST["nivel_academico"];
@@ -19,10 +19,10 @@ if ( $_SESSION["email"] != null
 	$pdo = new PDO($database_conexao, $database_username, $database_senha);
 	//echo var_dump($empresaux);
 
-	$query = "INSERT INTO participante (nome, email, genero, nivel_academico, tempo_organizacao, atuacao, tempo_experiencia, subordinada, cargo) VALUES (:nome, :email, :genero, :nivel_academico, :tempo_organizacao, :atuacao, :tempo_experiencia, :subordinada, :cargo);";
+	$query = "INSERT INTO participante (email, genero, nivel_academico, tempo_organizacao, atuacao, tempo_experiencia, subordinada, cargo) VALUES (:email, :genero, :nivel_academico, :tempo_organizacao, :atuacao, :tempo_experiencia, :subordinada, :cargo);";
 				
 	$statement = $pdo->prepare($query);
-	$statement->bindValue(":nome",$nome);
+	//$statement->bindValue(":nome",$nome);
 	$statement->bindValue(":email",$email);
 	$statement->bindValue(":genero",$genero);
 	$statement->bindValue(":nivel_academico",$nivel_academico);
