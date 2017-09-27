@@ -43,8 +43,8 @@
             </div>
             
             <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-            
-            <div class="col-md-9 col-md-offset-2" style="text-align: left; ">
+
+            <div class="col-md-9 col-md-offset-2" style="text-align: justify; ">
                 <br>
                 Muitas pesquisas e especialistas tem afirmado que o alinhamento estratégico entre a TI e os negócios é muito importante para que as organizações possam ser mais produtivas e mais competitivas. 
                 <br><br>
