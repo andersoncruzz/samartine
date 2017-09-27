@@ -42,35 +42,33 @@
                 <h2><b>Sistema de Avaliação e Recomendação de Melhorias para o Alinhamento Estratégico entre TI e Negócios</b></h2>
             </div>
             
+            <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            
             <div class="col-md-9 col-md-offset-2" style="text-align: left; ">
                 <br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Muitas pesquisas e especialistas tem afirmado que o alinhamento estratégico entre a TI e os negócios é muito importante para que as organizações possam ser mais produtivas e mais competitivas. 
+                Muitas pesquisas e especialistas tem afirmado que o alinhamento estratégico entre a TI e os negócios é muito importante para que as organizações possam ser mais produtivas e mais competitivas. 
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O(A) Senhor(a) foi selecionado(a) pelo líder da avaliação com a aprovação da alta administração (Presidente) para responder algumas questões que indicam o quanto algumas metas de alinhamento estratégico estão sendo alcançadas pela CAER.
+                O(A) Senhor(a) foi selecionado(a) pelo líder da avaliação com a aprovação da alta administração (Presidente) para responder algumas questões que indicam o quanto algumas metas de alinhamento estratégico estão sendo alcançadas pela CAER.
                 <br><br>
-                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sua ajuda é muito valiosa!</b>
+                <b>Sua ajuda é muito valiosa!</b>
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os resultados desta avaliação serão utilizados para contribuir com a alta administração no sentido de analisar e identificar o nível do alinhamento estratégico existente entre as áreas de TI e negócios da CAER. Deste modo, a companhia poderá estabelecer suas políticas, práticas organizacionais e ações para implementar recomendações de melhorias.
+                Os resultados desta avaliação serão utilizados para contribuir com a alta administração no sentido de analisar e identificar o nível do alinhamento estratégico existente entre as áreas de TI e negócios da CAER. Deste modo, a companhia poderá estabelecer suas políticas, práticas organizacionais e ações para implementar recomendações de melhorias.
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os critérios utilizados para sua seleção podem ter sido: disponibilidade, tempo de experiência, conhecimento da organização, confiança, dentre outros. Apesar de você ter sido previamente selecionado(a), sua participação é voluntária, respondendo as questões da forma mais sincera possível, já que não existem respostas certas ou erradas. 
+                Os critérios utilizados para sua seleção podem ter sido: disponibilidade, tempo de experiência, conhecimento da organização, confiança, dentre outros. Apesar do Senhor(a) ter sido previamente selecionado(a), sua participação é voluntária, respondendo as questões da forma mais sincera possível, já que não existem respostas certas ou erradas. 
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O questionário que o(a) senhor(a) deverá responder leva, em média, de 15 a 30 minutos para ser respondido. 
+                O questionário que o(a) senhor(a) deverá responder leva, em média, de 15 a 30 minutos para ser respondido. 
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se consentir em participar, suas respostas serão embaralhadas com as respostas dos demais participantes. Ao preencher os formulários, o(a) senhor(a) não será identificado(a) e as informações sobre seu perfil serão utilizadas apenas para fins estatísticos. Os resultados da avaliação serão analisados e possivelmente publicados, mas sua identidade não será divulgada, sendo guardada em sigilo. 
+                Se consentir em participar, suas respostas serão embaralhadas com as respostas dos demais participantes. Ao preencher os formulários, o(a) senhor(a) não será identificado(a) e as informações sobre seu perfil serão utilizadas apenas para fins estatísticos. Os resultados da avaliação serão analisados e possivelmente publicados, mas sua identidade não será divulgada, sendo guardada em sigilo. 
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se depois de consentir em sua participação, o(a) senhor(a) desistir de continuar participando, terá o direito e a liberdade de retirar seu consentimento em qualquer fase, seja antes ou depois da coleta de dados, independente do motivo e sem prejuízo à sua pessoa ou às suas funções.
+                Se depois de consentir em sua participação, o(a) senhor(a) desistir de continuar participando, terá o direito e a liberdade de retirar seu consentimento em qualquer fase, seja antes ou depois da coleta de dados, independente do motivo e sem prejuízo à sua pessoa ou às suas funções.
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para maiores informações, entre em contado com o patrocinador e o líder da avaliação.
+                Para maiores informações, entre em contado com o patrocinador e o líder da avaliação.
                 <br><br>
-                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patrocinador:</b> Danque Esbel - Presidente da CAER
+                <b>Patrocinador:</b> Danque Esbel - Presidente da CAER
                 <br>
-                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Líder da Avaliação:</b> Tony Carvalho Peixoto - Assessor de Tecnologia da Informação
+                <b>Líder da Avaliação:</b> Tony Carvalho Peixoto - Assessor de Tecnologia da Informação
                 <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Para continuar, acesse o sistema utilizando o Login e a Senha já fornecidos.
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Os resultados desta avaliação serão utilizados para contribuir com a alta administração no sentido de analisar e identificar o nível do alinhamento estratégico existente entre as áreas de TI e negócios da CAER. Deste modo, a companhia poderá estabelecer suas políticas, práticas organizacionais e ações para implementar recomendações de melhorias.
-                <br><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A metodologia utilizada por esta avaliação foi desenvolvida no âmbito de um trabalho de pesquisa de doutorado em informática da Universidade Federal do Amazonas, intitulado de "Uma abordagem para a avaliação e recomendação de melhorias para o alinhamento estratégico entre TI e negócios nas organizações."
+                Para continuar, acesse o sistema utilizando o Login e a Senha já fornecidos.
                 <br><br>
             </div>            
 
