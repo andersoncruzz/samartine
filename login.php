@@ -48,15 +48,15 @@
                 <br>
                 Muitas pesquisas e especialistas tem afirmado que o alinhamento estratégico entre a TI e os negócios é muito importante para que as organizações possam ser mais produtivas e mais competitivas. 
                 <br><br>
-                O(A) Senhor(a) foi selecionado(a) pelo líder da avaliação com a aprovação da alta administração (Presidente) para responder algumas questões que indicam o quanto algumas metas de alinhamento estratégico estão sendo alcançadas pela CAER.
+                O(A) senhor(a) foi selecionado(a) pelo líder da avaliação com a aprovação da alta administração (Presidente) para responder algumas questões que indicam o quanto algumas metas de alinhamento estratégico estão sendo alcançadas pela CAER.
                 <br><br>
                 <b>Sua ajuda é muito valiosa!</b>
                 <br><br>
                 Os resultados desta avaliação serão utilizados para contribuir com a alta administração no sentido de analisar e identificar o nível do alinhamento estratégico existente entre as áreas de TI e negócios da CAER. Deste modo, a companhia poderá estabelecer suas políticas, práticas organizacionais e ações para implementar recomendações de melhorias.
                 <br><br>
-                Os critérios utilizados para sua seleção podem ter sido: disponibilidade, tempo de experiência, conhecimento da organização, confiança, dentre outros. Apesar do Senhor(a) ter sido previamente selecionado(a), sua participação é voluntária, respondendo as questões da forma mais sincera possível, já que não existem respostas certas ou erradas. 
+                Os critérios utilizados para sua seleção podem ter sido: disponibilidade, tempo de experiência, conhecimento da organização, confiança, dentre outros. Apesar do senhor(a) ter sido previamente selecionado(a), sua participação é voluntária, respondendo as questões da forma mais sincera possível, já que não existem respostas certas ou erradas. 
                 <br><br>
-                O questionário que o(a) senhor(a) deverá responder leva, em média, de 15 a 30 minutos para ser respondido. 
+                O questionário que o(a) senhor(a) deverá responder leva, em média, de 10 a 20 minutos para ser respondido e estará disponível para sua utilização até Segunda-feira, 02/10 às 23:59. 
                 <br><br>
                 Se consentir em participar, suas respostas serão embaralhadas com as respostas dos demais participantes. Ao preencher os formulários, o(a) senhor(a) não será identificado(a) e as informações sobre seu perfil serão utilizadas apenas para fins estatísticos. Os resultados da avaliação serão analisados e possivelmente publicados, mas sua identidade não será divulgada, sendo guardada em sigilo. 
                 <br><br>
