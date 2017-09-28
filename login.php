@@ -56,7 +56,7 @@
                 <br><br>
                 Os critérios utilizados para sua seleção podem ter sido: disponibilidade, tempo de experiência, conhecimento da organização, confiança, dentre outros. Apesar do senhor(a) ter sido previamente selecionado(a), sua participação é voluntária, respondendo as questões da forma mais sincera possível, já que não existem respostas certas ou erradas. 
                 <br><br>
-                O questionário que o(a) senhor(a) deverá responder leva, em média, de 10 a 20 minutos para ser respondido e estará disponível para sua utilização até Segunda-feira, 02/10 às 23:59. 
+                O questionário que o(a) senhor(a) deverá responder leva, em média, de 10 a 20 minutos para ser respondido e estará disponível para sua utilização até Terça-feira, 03/10 às 23:59. 
                 <br><br>
                 Se consentir em participar, suas respostas serão embaralhadas com as respostas dos demais participantes. Ao preencher os formulários, o(a) senhor(a) não será identificado(a) e as informações sobre seu perfil serão utilizadas apenas para fins estatísticos. Os resultados da avaliação serão analisados e possivelmente publicados, mas sua identidade não será divulgada, sendo guardada em sigilo. 
                 <br><br>
